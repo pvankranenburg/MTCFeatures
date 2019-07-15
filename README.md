@@ -16,18 +16,18 @@ One feature sequence corresponds with the sequence of notes for the given melody
 | `tonic` | string | {'A', ..., 'G'} x {'-', '', '#'} | Pitch class of the tonic for the current note. |
 | `mode` | string | {'major', 'minor', 'dorian', ..., 'locrian'} | Mode for the current note. |
 | `scaledegree` | int | [1, ..., 7] | Scale degree of the pitch.|
-| `scaledegreespecifier` | string | {'P', 'M', 'm', 'A', 'd', ...} | Specifier of the scaledegree: Perfect, Major, Minor, Augmented, Diminished, ... |
-| `diatonicpitch` | int | [0, ->) | Diatonic interval of the note with respect to the tonic in octave 0. |
+| `scaledegreespecifier` | string | {'P', 'M', 'm', 'A', 'd', ...} | Specifier of the scaledegree: Perfect, Major, Minor, Augmented, Diminished, ... above the tonic. |
+| `diatonicpitch` | int | [0, ->) | Diatonic pitch of the note. Tonic in octave 0 gets value 0. |
 | `timesignature` | Fraction (string) | 'n/d' | Time signature for the current note. No notated time signature: '0/0' for all notes. | 
 | `beatstrength` | float | (0.0, ..., 1.0] | Metric weight (beatStrength) of the onset time of the note as computed by music21. No notated time signature: 1.0 for all notes. |
 | `metriccontour` | string | {'-', '=', '+'} | Contour of metric weight (beatstrength) with respect to the previous note. First note gets '+'. No notated time signature: '=' for all notes. |
 | `imaweight` | float | [0.0, ..., 1.0] | Metric weight as computed by Inner Metric Analysis. |
 | `imacontour` | string | {'-', '=', '+'} | Contour of metric weight (ima weight) with respect to the previous note. First note gets '+'. |
-| `duration` | float | [0.0, ->) | Duration of the note. Quarternote has duration 1.0. |
+| `duration` | float | [0.0, ->) | Duration of the note. Quarter note has duration 1.0. |
 | `IOR` | float | (0.0, ->) | Duration of the note with respect to the duration of the previous note. Duration is inter-onset interval. |
 | `beatfraction` | Fraction (string) | {'n/d', 'n'} | Duration of the note with respect to length of the beat. No notated time signature: '0' for all notes. |
-| `beat_str` | Integer (string) | {'1', ... } | Beat in the measure, the note is in. No notated time signature: '1' for all notes. |
-| `beat_fraction_str` | Fraction (string) | {'n/d', 'n'} | Position of the onset time of the note relative to the beat in the measure. No notated time signature: '0' for all notes. |
+| `beat_str` | Integer (string) | {'1', ... } | Beat in the measure, the note is in. First beat is '1'. No notated time signature: '1' for all notes. |
+| `beat_fraction_str` | Fraction (string) | {'n/d', 'n'} | Position of the onset time of the note relative to the beat in the measure. Note on the beat has value '0'. No notated time signature: '0' for all notes. |
 | `beat` | float | [1.0, ->) | Position of the onset time of the note relative to the measure in units of the beat. First beat is 1.0. No notated time signature: 0.0 for all notes. |
 | `songpos` | float | [0.0, ..., 1.0] | Onset time of the note in the song. Onset time of the first note is 0.0. Onset time of the last note is 1.0. |
 | `beatinsong` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in units of the beat length. First note in the first full bar has value "0". No notated time signature: '0' for all notes. |
