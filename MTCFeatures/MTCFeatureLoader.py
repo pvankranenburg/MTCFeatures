@@ -11,7 +11,7 @@ __modpath = Path(__file__).resolve().parent
 datapaths = {
     'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences.jsonl.gz'),
     'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences.jsonl.gz'),
-    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences.json.gl')
+    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences.jsonl.gz')
 }
 
 class MTCFeatureLoader:
