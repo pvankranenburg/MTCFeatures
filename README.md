@@ -6,7 +6,7 @@ One feature sequence corresponds with the sequence of notes for the given melody
 
 | Feature | Type | Values | Description |
 | --- | --- | --- | --- |
-| `pitch` | string | {'A', ..., 'G'} x {'--', '-', '', '#', '##'} x {'1', ... '8'} | Pitch of the note in string representation as used by music21. |
+| `pitch` | string | {'A', ..., 'G'} x {'--', '-', '', '#', '##'} x {'0', ... '8'} | Pitch of the note in string representation as used by music21. |
 | `midipitch` | int | [0, ..., 108] | MIDI note number of the pitch. |
 | `pitch40` | int | [0, ->) | Pitch in [base40](http://www.ccarh.org/publications/reprints/base40/) representation. |
 | `contour3` | string | {'-', '=', '+'} | Contour of the pitch with respect to the previous note. |
