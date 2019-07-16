@@ -8,25 +8,6 @@ from itertools import filterfalse
 
 __modpath = Path(__file__).resolve().parent
 
-# Example use:
-
-# This selects songs from ANN background corpus, with year > 1850 and type 'vocal'
-# and divides those in train and test set making sure the split is at the level of tunefamily
-
-# dl = MTCDataLoader('mtcfsinst_sequences.jsonl')
-# seqs = dl.applyFilters(
-#    [
-#        {'mfilter':'ann_bgcorpus'},
-#        {'mfilter':('afteryear',1850)},
-#        {'mfilter':'vocal'},
-#        {'mfilter':'labeled'},
-#        {'mfilter':'freemeter', 'invert':True}
-#    ]
-# )
-
-def say():
-    print(__modpath)
-
 datapaths = {
     'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences.jsonl.gz'),
     'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences.jsonl.gz')
