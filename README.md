@@ -2,7 +2,7 @@
 
 The [Meertens Tune Collections](http://www.liederenbank.nl/mtc/) incorporate various data sets with melodic data. The melodies are provided in Humdrum **kern encoding and as MIDI sequences. In many cases, a representation of the melodies as sequences of feature values is needed. `MTCFeatures` is a Python module that provides such feature sequences together with functionality for feature and object filtering and feature extraction.
 
-One feature sequence corresponds with the sequence of notes for the given melody. Rests are not represented. Consecutive tied notes are represented with one value. The following table presents a semi-formal description of the features that are included:
+One feature sequence corresponds with the sequence of notes for the given melody. Rests and grace notes are not represented. Consecutive tied notes are represented with one value. The following table presents a semi-formal description of the features that are included:
 
 | Feature | Type | Values | Description |
 | --- | --- | --- | --- |
