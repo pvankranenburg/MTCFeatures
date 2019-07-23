@@ -35,11 +35,11 @@ One feature sequence corresponds with the sequence of notes for the given melody
 | `phrasepos` | float | [0.0, ..., 1.0] | Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0. |
 | `beatinphrase` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in the phrase in units of the beat length. First note in the first full bar has value "0". No notated time signature: '0' for all notes. |
 | `beatinphrase_end` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in the phrase in units of the beat length. The last note that starts on the beat has value "0". No notated time signature: '0' for all notes. |
-| `melismastatus` | string | {'end', 'start', 'in'}  | In what way the note is part of a melisma. `end`: laste note of a melisma (also for syllabic lyrics). `in`: middle note. `start`: first note of a melisma. Vocal melodies only. |
+| `melismastatus` | string | {'end', 'start', 'in'}  | In what way the note is part of a melisma. `end`: last note of a melisma (also for syllabic lyrics). `in`: middle note. `start`: first note of a melisma. Vocal melodies only. |
 | `lyrics` | string |  | Lyric syllable that goes with the note. Leading `-` indicates continuation of a word. Trailing `-` indicates the word to be continued. Only at first note of melisma. Vocal melodies only. |
 | `noncontentword` | bool | {true, false}  | Whether the lyric is a non content word in the Dutch language. Only at first note of melisma. Vocal melodies only. |
 | `wordend` | bool | {true, false} | Whether the syllable at the note is the last (or only) in the word. Only at first note of melisma. Vocal melodies only. |
 | `wordstress` | bool | {true, false} | Whether the syllable at the note is stressed.  Only at first note of melisma. Vocal melodies only. |
-| `phoneme` | string |   | Phonetic representation of the syllable at the note. Only at first note of melisma. Vocal melodies only. |
-| `rhymes` | bool | {true, false} | Whether the word that ends at the note rhymes with another word in the lyrics of the song. Only at first note of melisma. Vocal melodies only. |
-| `rhymescontentwords` | bool | {true, false} | Whether the word that ends at the note rhymes with another word (non content words excluded) in the lyrics of the song. Only at first note of melisma. Vocal melodies only. |
+| `phoneme` | string |   | Phonemic representation of the syllable at the note. Only at first note of melisma. Vocal melodies only. |
+| `rhymes` | bool | {true, false} | Whether the word that ends at the note rhymes with another word anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only. |
+| `rhymescontentwords` | bool | {true, false} | Whether the word that ends at the note rhymes with another word (non content words excluded) anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only. |
