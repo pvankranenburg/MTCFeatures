@@ -94,6 +94,25 @@ class MTCFeatureLoader:
             for line in f:
                 yield json.loads(line)
 
+    #merges features from from_file into sequeces
+    #existing features will be overwritten
+    def merge_sequences(self, from_file, seq_iter=None):
+        if seq_iter is None:
+            seq_iter = self.sequences()
+        #read from_sequences in memory (memory expensive, but faster)
+        fl = MTCFeatureLoader(from_file)
+        from_seqs = list(fl.sequences())
+        #convert to dict
+        from_seqs = {seq['id']: seq for seq in from_seqs}
+        for seq in seq_iter:
+            try:
+                from_seq = from_seqs[seq['id']]
+                for feat in from_seq['features'].keys():
+                    seq['features'][feat] = from_seq['features'][feat]
+            except KeyError as e:
+                pass
+            yield seq
+
     @staticmethod
     def writeJSON(json_out_path, seq_iter):
         json_out_path = PurePath(json_out_path)
