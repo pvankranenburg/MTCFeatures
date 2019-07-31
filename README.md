@@ -25,6 +25,7 @@ One feature sequence corresponds with the sequence of notes for the given melody
 | `imacontour` | string | {'-', '=', '+'} | Contour of metric weight (ima weight) with respect to the previous note. First note gets '+'. |
 | `duration` | float | [0.0, ->) | Duration of the note. Quarter note has duration 1.0. |
 | `IOR` | float | (0.0, ->) | Duration of the note with respect to the duration of the previous note. Duration is inter-onset interval. |
+| `nextisrest` | bool | {true, false} | Whether the note is followed by a rest. |
 | `beatfraction` | Fraction (string) | {'n/d', 'n'} | Duration of the note with respect to length of the beat. No notated time signature: '0' for all notes. |
 | `beat_str` | Integer (string) | {'1', ... } | Beat in the measure, the note is in. First beat is '1'. No notated time signature: '1' for all notes. |
 | `beat_fraction_str` | Fraction (string) | {'n/d', 'n'} | Position of the onset time of the note relative to the beat in the measure. Note on the beat has value '0'. No notated time signature: '0' for all notes. |
