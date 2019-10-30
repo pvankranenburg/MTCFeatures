@@ -1,10 +1,10 @@
 import gzip
 import json
-import os
+import sys
 from pathlib import PurePath, Path
 
 from collections import defaultdict
-from itertools import filterfalse
+from itertools import filterfalse, groupby
 
 __modpath = Path(__file__).resolve().parent
 
@@ -190,26 +190,26 @@ class MTCFeatureLoader:
         )
 
     # heavy on memory
-    def minClassSizeFilter(self, classfeature, mininum=0, seq_iter=None):
+    def minClassSizeFilter(self, classfeature, minsize=0, seq_iter=None):
         if seq_iter is None:
             seq_iter = self.sequences()
         mem = defaultdict(list)
         for seq in seq_iter:
             mem[seq[classfeature]].append(seq)
-            if len(mem[seq[classfeature]]) == mininum:
+            if len(mem[seq[classfeature]]) == minsize:
                 for s in mem[seq[classfeature]]:
                     yield s
-            elif len(mem[seq[classfeature]]) > mininum:
+            elif len(mem[seq[classfeature]]) > minsize:
                 yield seq
 
     # heavy on memory
-    def maxClassSizeFilter(self, classfeature, maximum=100, seq_iter=None):
+    def maxClassSizeFilter(self, classfeature, maxsize=sys.maxsize, seq_iter=None):
         if seq_iter is None:
             seq_iter = self.sequences()
         seqs = sorted(list(seq_iter), key=lambda x: x[classfeature])  # Allas
         for _, gr in groupby(seqs, key=lambda x: x[classfeature]):
             group = list(gr)
-            if len(group) <= maximum:
+            if len(group) <= maxsize:
                 for g in group:
                     yield g
 
