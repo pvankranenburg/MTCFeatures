@@ -119,7 +119,7 @@ class MTCFeatureLoader:
     def addNoneReplacers(self):
         self.NoneReplacers.update (
             {
-                'metriccontour':      lambda featseq: [("+" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'metriccontour':      lambda featseq: [("+" if ix==0 else "=" if val==None else val) for ix, val in enumerate(featseq)],
                 'imacontour':         lambda featseq: [("+" if ix==0 else val) for ix, val in enumerate(featseq)],
                 'contour3':           lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
                 'contour5':           lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
