@@ -23,8 +23,10 @@ class MTCFeatureLoader:
             self.jsonpath = PurePath(jsonpath)
         self.filterBank = {}  # defaultdict(lambda : False)
         self.featureExtractors = {}  # defaultdict(lambda: 0)
+        self.NoneReplacers = defaultdict(lambda x: lambda y:y) #default: function that returns the argument
         self.addMTCFilters()
         self.addMTCFeatureExtractors()
+        self.addNoneReplacers()
 
     def addMTCFilters(self):
         self.registerFilter("vocal", lambda x: x["type"] == "vocal")
@@ -113,6 +115,40 @@ class MTCFeatureLoader:
             lambda x, y: str(x) + " " + str(y),
             ["beat_str", "beat_fraction_str"],
         )
+    
+    def addNoneReplacers(self):
+        self.NoneReplacers.update (
+            {
+                'metriccontour':      lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'diatonicinterval':   lambda featseq: [(0 if ix==0 else val) for ix, val in enumerate(featseq)],
+                'chromaticinterval':  lambda featseq: [(0 if ix==0 else val) for ix, val in enumerate(featseq)],
+                'nextisrest':         lambda featseq: [(True if ix==len(featseq)-1 else val) for ix, val in enumerate(featseq)],
+                'beatfraction':       lambda featseq: [("0" if val==None else val) for val in featseq],
+                'beatinsong':         lambda featseq: [("0" if val==None else val) for val in featseq],
+                'beatinphrase':       lambda featseq: [("0" if val==None else val) for val in featseq],
+                'beatinphrase_end':   lambda featseq: [("0" if val==None else val) for val in featseq],
+                'beatstrength':       lambda featseq: [(1.0 if val==None else val) for val in featseq],
+                'beat_str':           lambda featseq: [('1' if val==None else val) for val in featseq],
+                'beat_fraction_str':  lambda featseq: [('0' if val==None else val) for val in featseq],
+                'beat':               lambda featseq: [(0.0 if val==None else val) for val in featseq],
+                'timesignature':      lambda featseq: [('0/0' if val==None else val) for val in featseq],
+                'lyrics':             lambda featseq: [('' if val==None else val) for val in featseq],
+                'noncontentword':     lambda featseq: [(False if val==None else val) for val in featseq],
+                'wordend':            lambda featseq: [(False if val==None else val) for val in featseq],
+                'phoneme':            lambda featseq: [('' if val==None else val) for val in featseq],
+                'rhymes':             lambda featseq: [(False if val==None else val) for val in featseq],
+                'rhymescontentwords': lambda featseq: [(False if val==None else val) for val in featseq],
+                'wordstress':         lambda featseq: [(False if val==None else val) for val in featseq]
+            }
+        )
+
+    def replaceNone(self, seq_iter=None):
+        if seq_iter is None:
+            seq_iter = self.sequences()
+        for seq in seq_iter:
+            for featname in seq["features"].keys():
+                seq["features"][featname] = self.NoneReplacers[featname](seq["features"][featname])
+            yield seq
 
     def sequences(self):
         if self.jsonpath.suffix == ".gz":
