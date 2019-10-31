@@ -25,6 +25,7 @@ One feature sequence corresponds with the sequence of notes for the given melody
 | `imacontour` | string | {'-', '=', '+'} | Contour of metric weight (ima weight) with respect to the previous note. First note gets '+'. |
 | `duration` | float | [0.0, ->) | Duration of the note. Quarter note has duration 1.0. |
 | `IOR` | float | (0.0, ->) | Duration of the note with respect to the duration of the previous note. Duration is inter-onset interval. |
+| `onsettick` | int | [0,->) | Onset of the note in MIDI ticks. |
 | `nextisrest` | bool | {true, false} | Whether the note is followed by a rest. |
 | `beatfraction` | Fraction (string) | {'n/d', 'n'} | Duration of the note with respect to length of the beat. No notated time signature: '0' for all notes. |
 | `beat_str` | Integer (string) | {'1', ... } | Beat in the measure, the note is in. First beat is '1'. No notated time signature: '1' for all notes. |
@@ -34,6 +35,7 @@ One feature sequence corresponds with the sequence of notes for the given melody
 | `beatinsong` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in units of the beat length. First note in the first full bar has value "0". No notated time signature: '0' for all notes. |
 | `phrase_ix` | int | [0, ->) | Serial number of the phrase the note is in. First phrase is 0. |
 | `phrasepos` | float | [0.0, ..., 1.0] | Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0. |
+| `phraseend` | bool | {true, false} | Whether the note is the last in a phrase. |
 | `beatinphrase` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in the phrase in units of the beat length. First note in the first full bar has value "0". No notated time signature: '0' for all notes. |
 | `beatinphrase_end` | Fraction (string) | {'n/d', 'n'} | Onset time of the note in the phrase in units of the beat length. The last note that starts on the beat has value "0". No notated time signature: '0' for all notes. |
 | `melismastatus` | string | {'end', 'start', 'in'}  | In what way the note is part of a melisma. `end`: last note of a melisma (also for syllabic lyrics). `in`: middle note. `start`: first note of a melisma. Vocal melodies only. |
