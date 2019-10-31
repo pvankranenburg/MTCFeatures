@@ -23,7 +23,7 @@ class MTCFeatureLoader:
             self.jsonpath = PurePath(jsonpath)
         self.filterBank = {}  # defaultdict(lambda : False)
         self.featureExtractors = {}  # defaultdict(lambda: 0)
-        self.NoneReplacers = defaultdict(lambda x: lambda y:y) #default: function that returns the argument
+        self.NoneReplacers = defaultdict(lambda: lambda x:x) #default: function that returns the argument
         self.addMTCFilters()
         self.addMTCFeatureExtractors()
         self.addNoneReplacers()
@@ -120,6 +120,10 @@ class MTCFeatureLoader:
         self.NoneReplacers.update (
             {
                 'metriccontour':      lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'imacontour':         lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'contour3':           lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'contour5':           lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'IOR':                lambda featseq: [(1.0 if ix==0 else val) for ix, val in enumerate(featseq)],
                 'diatonicinterval':   lambda featseq: [(0 if ix==0 else val) for ix, val in enumerate(featseq)],
                 'chromaticinterval':  lambda featseq: [(0 if ix==0 else val) for ix, val in enumerate(featseq)],
                 'nextisrest':         lambda featseq: [(True if ix==len(featseq)-1 else val) for ix, val in enumerate(featseq)],
