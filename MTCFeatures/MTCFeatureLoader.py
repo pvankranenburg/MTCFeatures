@@ -1,6 +1,7 @@
 import gzip
 import json
 import sys
+import random
 from pathlib import PurePath, Path
 
 from collections import defaultdict
@@ -77,7 +78,35 @@ class MTCFeatureLoader:
             "371_0",
         ]
         self.registerFilter("inInstTest", lambda x: x["tunefamily"] in inst_test_list)
+
+    def head(self, n=10, seq_iter=None):
+        if seq_iter is None:
+            seq_iter = self.sequences()
+        for ix, seq in enumerate(seq_iter):
+            if ix < n:
+                yield seq
+            else:
+                continue
+
+    #heavy on memory
+    def tail(self, n=10, seq_iter=None):
+        if seq_iter is None:
+            seq_iter = self.sequences()
+        seqs = list(seq_iter)
+        for ix, seq in seqs:
+            if len(seqs) - ix <= n:
+                yield seq
+            else:
+                continue
     
+    #heavy on memory
+    def randomSel(self, n=10, seq_iter=None):
+        if seq_iter is None:
+            seq_iter = self.sequences()
+        seqs = list(seq_iter)
+        for seq in random.sample(seqs, n):
+            yield seq
+
     def addMTCFeatureExtractors(self):
         self.registerFeatureExtractor(
             "full_beat_str",
