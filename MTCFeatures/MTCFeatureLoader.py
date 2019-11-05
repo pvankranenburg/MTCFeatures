@@ -10,9 +10,9 @@ from itertools import filterfalse, groupby
 __modpath = Path(__file__).resolve().parent
 
 datapaths = {
-    'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences-0.9.1.jsonl.gz'),
-    'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences-0.9.1.jsonl.gz'),
-    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences-0.9.1.jsonl.gz')
+    'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences-1.0.jsonl.gz'),
+    'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences-1.0.jsonl.gz'),
+    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences-1.0.jsonl.gz')
 }
 
 class MTCFeatureLoader:

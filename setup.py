@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="MTCFeatures",
-    version="0.1",
+    version="1.0",
     author="Peter van Kranenburg",
     author_email="peter.van.kranenburg@meertens.knaw.nl",
-    description="Melodies from Meertens Tune Collections as sequences of features.",
+    description="Melodies from Meertens Tune Collections and Essen Folksong Collection as sequences of features.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pvankranenburg/MTCFeatures",
