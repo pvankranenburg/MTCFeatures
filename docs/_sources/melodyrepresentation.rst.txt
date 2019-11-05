@@ -83,8 +83,8 @@ The following table presents a semi-formal description of the features that are 
 	  - Contour of the pitch with respect to the previous note. First note is ``None``.
 	* - `contour5`
 	  - string
-	  - {'--', '-', '=', '+', '++'}
-	  - Contour of the pitch with respect to the previous note. '--' and '++' are leaps >= 3 in midipitch. First note has ``None``.
+	  - {'-\\-', '-', '=', '+', '++'}
+	  - Contour of the pitch with respect to the previous note. '-\\-' and '++' are leaps >= 3 in midipitch. First note has ``None``.
 	* - `diatonicinterval`
 	  - int
 	  - (<-, ->)
