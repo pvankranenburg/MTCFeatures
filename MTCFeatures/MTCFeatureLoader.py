@@ -16,6 +16,38 @@ datapaths = {
 }
 
 class MTCFeatureLoader:
+    """Class for loading and processing melody sequences.
+    
+    Parameters
+    ----------
+    jsonpath : string
+        Either the filename of a .jsonl file containing melody sequences, or one
+        of the predefined names ``MTC-ANN-2.0.1``, ``MTC-FS-INST-2.0``, or ``ESSEN``.
+        If the filename ends with .gz, the data file is assumed to be gzipped.
+    
+    Attributes
+    ----------
+    jsonpath : string
+        The filename of a .jsonl file containing melody sequences. If the filename
+        ends with .gz, the file is gunzipped first.
+    filterBank : dictionary
+        A dictionary of (lambda) functions to be used to filter the sequences.
+        The keys are the names of the filters. A filter can be applied with the
+        `applyFilter` or `applyFilters` methods. The `filerBank` is initially
+        populated with a number of predefined filters. A filter can be added to
+        the filterBank with the `registerFilter` method.
+    featureExtractors : dictionary
+        A dictionary of (lambda) functions that compute new features from existing
+        features.
+    NoneReplacers : dictionary
+        A dictionary of (lambda) functions, each taking a list of feature values
+        and returning the list with all occurrences of None replaced with a
+        value. The keys are names of features. The `NoneReplacers` dict is used
+        by the method `replaceNone`. For each feature for which a NoneReplacer
+        is present in the `NoneReplacers` dictionary, this NoneReplacer is applied.
+    
+    """
+    
     def __init__(self, jsonpath):
         try:
             self.jsonpath = datapaths[jsonpath]
@@ -82,6 +114,21 @@ class MTCFeatureLoader:
         self.registerFilter("inInstTest", lambda x: x["tunefamily"] in inst_test_list)
 
     def head(self, n=10, seq_iter=None):
+        """Yields the first `n` melodies.
+        
+        Parameters
+        ----------
+        n : int, default=10
+            the number of sequences to yield.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+        
+        Yields
+        ------
+        sequence
+            Melody Sequence
+        
+        """
         if seq_iter is None:
             seq_iter = self.sequences()
         for ix, seq in enumerate(seq_iter):
@@ -92,6 +139,21 @@ class MTCFeatureLoader:
 
     #heavy on memory
     def tail(self, n=10, seq_iter=None):
+        """Returns the last `n` melodies.
+        
+        Parameters
+        ----------
+        n : int, default=10
+            the number of sequences to yield.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+        
+        Yields
+        ------
+        sequence
+            Melody Sequence
+        
+        """
         if seq_iter is None:
             seq_iter = self.sequences()
         seqs = list(seq_iter)
@@ -103,6 +165,21 @@ class MTCFeatureLoader:
     
     #heavy on memory
     def randomSel(self, n=10, seq_iter=None):
+        """Returns a random sample of `n` melodies.
+        
+        Parameters
+        ----------
+        n : int, default=10
+            the number of sequences to yield.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+        
+        Yields
+        ------
+        sequence
+            Melody Sequence
+        
+        """
         if seq_iter is None:
             seq_iter = self.sequences()
         seqs = list(seq_iter)
@@ -147,6 +224,21 @@ class MTCFeatureLoader:
         )
 
     def replaceNone(self, seq_iter=None):
+        """Replace None values with sensible fall back values.
+        
+        For all features for which a NoneReplacer has been registered, replace the None values with sensible fall back values according to the NoneReplacer.
+        
+        Parameters
+        ----------
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+            
+        Yields
+        ------
+        sequence
+            Melody Sequence with None values replaced
+        """
+        
         if seq_iter is None:
             seq_iter = self.sequences()
         for seq in seq_iter:
@@ -155,6 +247,13 @@ class MTCFeatureLoader:
             yield seq
 
     def sequences(self):
+        """Yields the list of melodies from the file `jsonpath`.
+        
+        Yields
+        ------
+        sequence
+            Melody Sequence
+        """
         if self.jsonpath.suffix == ".gz":
             opener = gzip.open
         else:
@@ -166,6 +265,21 @@ class MTCFeatureLoader:
     #merges features from from_file into sequeces
     #existing features will be overwritten
     def merge_sequences(self, from_file, seq_iter=None):
+        """Merges features from provided file.
+        
+        Parameters
+        ----------
+        from_file : string
+            File name of a .jsonl file from which the feature sequences will be imported.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+            
+        Yields
+        ------
+        sequence
+            Melody Sequence with features from `from_file` included.
+        """
+        
         if seq_iter is None:
             seq_iter = self.sequences()
         #read from_sequences in memory (memory expensive, but faster)
@@ -184,6 +298,16 @@ class MTCFeatureLoader:
 
     @staticmethod
     def writeJSON(json_out_path, seq_iter):
+        """Writes a list of melodies to a .jsonl file
+        
+        Parameters
+        ----------
+        json_out_path : string
+            Name of the file to write the json representations of the melodies. If the
+            filename ends with .gz, the file is gzipped.
+        seq_iter : iterable over melody sequences
+            Melody sequences to write to the file.
+        """
         json_out_path = PurePath(json_out_path)
         if json_out_path.suffix == ".gz":
             opener = gzip.open
@@ -197,11 +321,36 @@ class MTCFeatureLoader:
                 f.write(seq_json + "\n")
 
     def getFeatureNames(self):
+        """Get the names of the features present in the Melody Sequences.
+        
+        Returns
+        -------
+        featnames : list of strings
+            Names of the features as present in the FIRST melody in source file `jsonpath`.
+        """
         seqs = self.sequences()
         seq = next(seqs)  # get the names from first sequence
         return seq["features"].keys()
 
     def applyFilter(self, mfilter, invert=False, seq_iter=None):
+        """Apply a melody filter. Only keep those melodies that are passed by the filter.
+        
+        Parameters
+        ----------
+        mfilter : string or tuple
+            Name of the filter as registered in `filterBank`. If the filter has arguments,
+            this should be a tuple of the filter name and the arguments. 
+        invert : bool, default=False
+            If True, invert the filter. Only keep those melodies for which the condition is False.
+
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+            
+        Yields
+        ------
+        sequence
+            Melody Sequence that is passed by the filter.
+        """          
         if seq_iter is None:
             seq_iter = self.sequences()
         filterer = filter
@@ -213,6 +362,35 @@ class MTCFeatureLoader:
             return filterer(self.filterBank[mfilter], seq_iter)
 
     def applyFilters(self, filter_list, seq_iter=None):
+        """Apply a chain of filters. Only keep those melodies that are passed by all filters.
+        
+        Example
+        -------
+        
+        .. code-block:: python
+
+            from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+            fsinst_dl = MTCFeatureLoader('MTC-FS-INST-2.0')
+            vocal_seqs = fsinst_dl.applyFilters([
+                {'mfilter':'freemeter', 'invert':True},
+                {'mfilter':"vocal"},
+                {'mfilter':("afteryear",1850)} ]
+            )
+        
+        Now `vocal_seqs` is an iterator over all vocal melodies published after 1850 that do not have free meter,
+        
+        Parameters
+        ----------
+        filter_list : \*\*kwargs for `applyFilter` 
+            Chains a number of `applyFilter` calls with \*\*kwargs as provided.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+            
+        Yields
+        ------
+        sequence
+            Melody Sequence that is passed by the filter.
+        """          
         if seq_iter is None:
             seq_iter = self.sequences()
         for filt in filter_list:
@@ -220,9 +398,46 @@ class MTCFeatureLoader:
         return seq_iter
 
     def registerFilter(self, name, mfilter):
+        """Store a filter in `filterBank`.
+        
+        Example
+        -------
+        .. code-block:: python
+
+            from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+            fsinst_dl = MTCFeatureLoader('MTC-FS-INST-2.0')
+            dl.registerFilter("vocal", lambda x: x["type"] == "vocal")
+            dl.registerFilter("afteryear", lambda y: lambda x: x["year"] > y)
+        
+        Now the filter ``vocal`` is registered that passes all melodies with type vocal.
+        And filter ``afteryear`` with parameter `y` is registered that passes all melodies published after year `y`.
+        The filters can be applied with the method `applyFilter`
+        
+        Parameters
+        ----------
+        name : string
+            name of the filter. This will be used as key in the `filterBank` dictionary.
+        mfilter : function
+            Function that evaluates to True for melodies to be kept.
+        """
         self.filterBank[name] = mfilter
 
     def selectFeatures(self, featlist, seq_iter=None):
+        """Feature filter. For all melodies, keep only the indicated features.
+        
+        Parameters
+        ----------
+        featlist : list of strings
+            Names of the features to keep.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+    
+        Yields
+        ------
+        sequence
+            Melody Sequence with reduced feature set.
+        """
+        
         if seq_iter is None:
             seq_iter = self.sequences()
         for seq in seq_iter:
@@ -260,6 +475,22 @@ class MTCFeatureLoader:
 
     # heavy on memory
     def minClassSizeFilter(self, classfeature, minsize=0, seq_iter=None):
+        """Keep only melodies in tune families with >= ``minsize`` members.
+        
+        Parameters
+        ----------
+        classfeature : string
+            name of the feature that is used to group the melodies.
+        minsize : int, default=0
+            Minimum size of classes to keep.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+    
+        Yields
+        ------
+        sequence
+            Melody Sequence for melody in a class with minimum size `minsize`.
+        """
         if seq_iter is None:
             seq_iter = self.sequences()
         mem = defaultdict(list)
@@ -273,6 +504,22 @@ class MTCFeatureLoader:
 
     # heavy on memory
     def maxClassSizeFilter(self, classfeature, maxsize=sys.maxsize, seq_iter=None):
+        """Keep only melodies in tune families with <= ``maxsize`` members.
+        
+        Parameters
+        ----------
+        classfeature : string
+            name of the feature that is used to group the melodies.
+        maxsize : int, default=sys.maxsize
+            Maximum size of classes to keep.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+    
+        Yields
+        ------
+        sequence
+            Melody Sequence for melody in a class with maximum size `maxsize`.
+        """
         if seq_iter is None:
             seq_iter = self.sequences()
         seqs = sorted(list(seq_iter), key=lambda x: x[classfeature])  # Allas
