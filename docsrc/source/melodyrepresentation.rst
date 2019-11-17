@@ -136,7 +136,7 @@ The following table presents a semi-formal description of the features that are 
 	* - `duration`
 	  - float
 	  - [0.0, ->)
-	  - Duration of the (possibly tied) note. Quarter note has duration 1.0. 
+	  - Total duration of the (possibly tied) note and (possibly) following rest. Whole note has duration 1.0. [This will change in version 1.1: Duration of the (possibly tied) note. Quarter note has duration 1.0.]
 	* - `duration_frac`
 	  - Fraction (string)
 	  - {'n/d', 'n'}
