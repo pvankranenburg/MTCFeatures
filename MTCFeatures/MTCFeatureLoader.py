@@ -79,6 +79,7 @@ class MTCFeatureLoader:
             return (rn >= 70000 and rn < 80250) or rn == 176897
 
         self.registerFilter("inOGL", lambda x: inOGL(x["id"]))
+        self.registerFilter("inOrigin", lambda y: lambda x: y in x["origin"].split('/'))
         self.registerFilter("inNLBIDs", lambda id_list: lambda x: x["id"] in id_list)
         self.registerFilter(
             "inTuneFamilies", lambda tf_list: lambda x: x["tunefamily"] in tf_list
