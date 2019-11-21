@@ -200,7 +200,7 @@ The following table presents a semi-formal description of the features that are 
 	* - `beatinphrase_end`
 	  - Fraction (string)
 	  - {'n/d', 'n'}
-	  - Onset time of the note in the phrase in units of the beat length. The last note that starts on the beat has value "0". No notated time signature: ``None`` for all notes.
+	  - Onset time of the note in the phrase in units of the beat length. The note that starts on the first beat of the last measure has value "0". No notated time signature: ``None`` for all notes.
 	* - `melismastatus`
 	  - string
 	  - {'end', 'start', 'in'} 
