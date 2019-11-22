@@ -194,6 +194,7 @@ class MTCFeatureLoader:
             ["beat_str", "beat_fraction_str"],
         )
     
+    #Not for LBDM, Frankland and Schellenberg features
     def addNoneReplacers(self):
         self.NoneReplacers.update (
             {
@@ -220,7 +221,11 @@ class MTCFeatureLoader:
                 'phoneme':            lambda featseq: [('' if val==None else val) for val in featseq],
                 'rhymes':             lambda featseq: [(False if val==None else val) for val in featseq],
                 'rhymescontentwords': lambda featseq: [(False if val==None else val) for val in featseq],
-                'wordstress':         lambda featseq: [(False if val==None else val) for val in featseq]
+                'wordstress':         lambda featseq: [(False if val==None else val) for val in featseq],
+                #Version 1.1
+                'IOR_frac' :          lambda featseq: [("1" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'durationcontour':    lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],                
+                'restduration_frac':  lambda featseq: [("0" if val==None else val) for val in featseq],
             }
         )
 
