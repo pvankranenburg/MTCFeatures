@@ -1,5 +1,5 @@
-MTCFeatures 1.1
-===============
+MTCFeatures 1.1a
+================
 
 .. toctree::
    :maxdepth: 2

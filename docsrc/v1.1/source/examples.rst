@@ -7,14 +7,14 @@ Keep only the vocal songs (i.e., drop instrumental pieces):
 
 .. code-block:: python
 
-	from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+	from MTCFeatures import MTCFeatureLoader
 	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
 	seq_iter = fl.applyFilter('vocal')
 
 	for seq in seq_iter:
 		dosomething(seq)
 
-If a filter has arguments, these sould be provided with the filtername as tuple:
+If a filter has arguments, these should be provided with the filter name as tuple:
 
 .. code-block:: python
 
@@ -73,7 +73,7 @@ Only use the midipitch from all songs in MTC-ANN-2.0.1:
 
 .. code-block:: python
 
-	from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+	from MTCFeatures import MTCFeatureLoader
 	fl = MTCFeatureLoader('MTC-ANN-2.0.1')
 	seq_iter = fl.selectFeatures(['midipitch'])
 
@@ -97,8 +97,8 @@ Use scale degree, metric contour and beat position from all songs in MTC-ANN-2.0
 .. code-block:: python
 
 	fl = MTCFeatureLoader('MTC-ANN-2.0.1')
-	seq_iter = fl.selectFeatures(['scaledegree','metriccontour','full_beat_str'])
-	seq_iter = fl.applyFeatureExtractor('full_beat_str', seq_iter=seq_iter)
+	seq_iter = fl.applyFeatureExtractor('full_beat_str')
+	seq_iter = fl.selectFeatures(['scaledegree','metriccontour','full_beat_str'], seq_iter=seq_iter)
 
 Get backgroundcorpus for MTC-ANN from MTC-FS-INST:
 
@@ -181,6 +181,13 @@ Write the result to a gzipped .jsonl file:
 .. code-block:: python
 
 	fl.writeJSON('2805_0.jsonl.gz', seq_iter=sel_list)
+
+Only keep ESSEN melodies from The Netherlands"
+
+.. code-block:: python
+
+	fl = MTCFeatureLoader('ESSEN')
+	sel_dut = fl.applyFilter( ('origin', 'europa/nederlan') )
 
 Get vocal melodies that have a meter:
 

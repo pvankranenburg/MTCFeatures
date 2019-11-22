@@ -15,7 +15,7 @@ The `MTCFeatureLoader` can be initialized either with one of these, or with a us
 
 .. code-block:: python
 
-	from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+	from MTCFeatures import MTCFeatureLoader
 	fl = MTCFeatureLoader('MTC-ANN-2.0.1')
 	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
 	fl = MTCFeatureLoader('../path/to/my/file.jsonl.gz')
@@ -49,7 +49,7 @@ The following filters are registered in class `MTCFeatureLoader`:
 - ``inNLBIDs(id_list)`` : Only keep melodies with given identifiers in id_list
 - ``inTuneFamilies(tf_list)`` : Only keep melodies in given tune families in tf_list
 - ``inInstTest`` : Only keep melodies that are in cINST.
-- ``origin(location)`` : Only keep melodies originating from ``location`` (only for Essen).
+- ``origin(location)`` : Only keep melodies if ``location`` occurs somewhere in the origin meta data field (only for Essen).
 
 Available as separate functions:
 
