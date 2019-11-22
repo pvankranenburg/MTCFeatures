@@ -190,7 +190,7 @@ class MTCFeatureLoader:
     def addMTCFeatureExtractors(self):
         self.registerFeatureExtractor(
             "full_beat_str",
-            lambda x, y: str(x) + " " + str(y),
+            lambda x, y: str(x) + " " + str(y) if y != "0" else str(x),
             ["beat_str", "beat_fraction_str"],
         )
     
@@ -462,9 +462,56 @@ class MTCFeatureLoader:
             yield seq
 
     def registerFeatureExtractor(self, name, func, feats):
+        """Store a Feature Extractor.
+        
+        The feature extractor will be applied for each note separately.
+        The provided ``func`` will be called with the values of the indicated
+        features in ``feats`` as arguments. and the sequence of computed values
+        will be stored in the ``features`` dictionary of the Melody Sequence with
+        ``name`` as key. 
+
+        Example
+        -------
+        .. code-block:: python
+
+            from MTCFeatures import MTCFeatureLoader
+            dl = MTCFeatureLoader('MTC-ANN-2.0.1')
+            dl.registerFeatureExtractor(
+                'midi8va',
+                lambda x: x+12,
+                ['midipitch']
+            )
+            seq_iter = dl.applyFeatureExtractor('midi8va')
+        
+        Parameters
+        ----------
+        name : string
+            name of the feature extractor.
+        func : function
+            (lambda) function taking feature values for one note and computing the
+            value for the new feature.
+        feats : list of strings
+            names of the features that are the input for ``func``.
+        """
+        
         self.featureExtractors[name] = (func, feats)
 
     def applyFeatureExtractor(self, name, seq_iter=None):
+        """Apply a Feature Extractor.
+        
+        Parameters
+        ----------
+        name : string
+            name with which the feature extractor was registered.
+        seq_iter : iterable or None, default=None
+            iterable over melody sequences. If None, take the sequences from `jsonpath`.
+        
+        Yields
+        ------
+        sequence
+            Melody Sequence with extracted feature included.
+        """
+                
         if seq_iter is None:
             seq_iter = self.sequences()
         func, feats = self.featureExtractors[name]
@@ -497,6 +544,7 @@ class MTCFeatureLoader:
         sequence
             Melody Sequence for melody in a class with minimum size `minsize`.
         """
+        
         if seq_iter is None:
             seq_iter = self.sequences()
         mem = defaultdict(list)
