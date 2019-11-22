@@ -13,16 +13,16 @@
 import os
 import sys
 # sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'MTCFeatures 1.1'
+project = 'MTCFeatures 1.1a'
 copyright = '2019, Peter van Kranenburg'
 author = 'Peter van Kranenburg'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1'
+release = '1.1a'
 
 
 # -- General configuration ---------------------------------------------------
@@ -33,7 +33,7 @@ release = '1.1'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
