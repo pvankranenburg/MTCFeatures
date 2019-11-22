@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Melody Representation &mdash; MTCFeatures 1.0 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Functionality" href="basicusage.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Melody Representation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MTCFeatures 1.0</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Melody Representation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/melodyrepresentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="melody-representation">
+<h1>Melody Representation<a class="headerlink" href="#melody-representation" title="Permalink to this headline">¶</a></h1>
+<p><cite>MTCFeatures</cite> provides a class <cite>MTCFeatureLoader</cite>, which offers functionality for loading and processing melodies represented as sequences of features. A <cite>MTCFeatureLoader</cite> object takes as source a .jsonl file (optionally gzipped), which is a text file with on each line a json object representing a melody. A melody object contains metadata fields and several sequences of feature values. As follows (here pretty printed for readibility - the entire json object for one melody should be on one line in the data file):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;NLB178968_01&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;vocal&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="mi">1866</span><span class="p">,</span>
+ <span class="s1">&#39;freemeter&#39;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+ <span class="s1">&#39;tunefamily&#39;</span><span class="p">:</span> <span class="s1">&#39;1302_0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;tunefamily_full&#39;</span><span class="p">:</span> <span class="s1">&#39;Contre les chagrins de la vie&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ann_bgcorpus&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;pitch40&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span>    <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">135</span><span class="p">],</span>
+              <span class="s1">&#39;scaledegree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>    <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="s1">&#39;scaledegreespecifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">],</span>
+
+              <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+
+              <span class="s1">&#39;phrasepos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.071429</span><span class="p">,</span> <span class="mf">0.142857</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">0.833333</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+              <span class="s1">&#39;songpos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.007142857142857143</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">1.0</span><span class="p">]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example the metadata fields are <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily_full</span></code>, <code class="docutils literal notranslate"><span class="pre">freemeter</span></code>, and <code class="docutils literal notranslate"><span class="pre">ann_bgcorpus</span></code>. The named object <code class="docutils literal notranslate"><span class="pre">features</span></code> contains several sequences of feature values.</p>
+<p>One feature sequence corresponds with the sequence of notes in the given melody. Rests and grace notes are not represented. Consecutive tied notes are represented with one value.</p>
+<p>The following meta data fields are included:</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Metadata Fields</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>id</cite> (string)</p></td>
+<td><p>Identifier of the melody.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>type</cite> ({vocal, instrumental})</p></td>
+<td><p>Type of the song. <code class="docutils literal notranslate"><span class="pre">vocal</span></code>: has lyrics, <code class="docutils literal notranslate"><span class="pre">instrumental</span></code>: has no lyrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>year</cite> (int)</p></td>
+<td><p>Year of publication of the song</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>tunefamily</cite> (string)</p></td>
+<td><p>Tune family identifier</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>tunefamily_full</cite> (string)</p></td>
+<td><p>Full name of the tune family</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>freemeter</cite> (bool)</p></td>
+<td><p>Whether the melody has a free (i.e. no notated) meter.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>ann_bgcorpus</cite> (bool)</p></td>
+<td><p>The songs in MTC-FS-INST-2.0 for which this value is True are unrelated to the songs in MTC-ANN-2.0.1.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Melodies from the ESSEN collection have the following (fall back) values for the metadata fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>id</cite> = basename of the **kern file</p></li>
+<li><p><cite>type</cite> = “vocal” (but no lyrics features are present)</p></li>
+<li><p><cite>year</cite> = -1</p></li>
+<li><p><cite>tunefamily</cite> = “”</p></li>
+<li><p><cite>tunefamily_full</cite> = “”</p></li>
+</ul>
+</div></blockquote>
+<p>The following table presents a semi-formal description of the features that are included for each note:</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Features</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>pitch</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘A’, …, ‘G’} x {‘–’, ‘-‘, ‘’, ‘#’, ‘##’} x {‘0’, … ‘8’}</p></td>
+<td><p>Pitch of the note in string representation as defined in <a class="reference external" href="https://web.mit.edu/music21/">music21</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>midipitch</cite></p></td>
+<td><p>int</p></td>
+<td><p>[0, …, 108]</p></td>
+<td><p>MIDI note number representing the pitch.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>pitch40</cite></p></td>
+<td><p>int</p></td>
+<td><p>[0, -&gt;)</p></td>
+<td><p>Pitch in <a class="reference external" href="http://www.ccarh.org/publications/reprints/base40">base40</a> representation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>contour3</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘-‘, ‘=’, ‘+’}</p></td>
+<td><p>Contour of the pitch with respect to the previous note. First note is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>contour5</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘–’, ‘-‘, ‘=’, ‘+’, ‘++’}</p></td>
+<td><p>Contour of the pitch with respect to the previous note. ‘–’ and ‘++’ are leaps &gt;= 3 in midipitch. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>diatonicinterval</cite></p></td>
+<td><p>int</p></td>
+<td><p>(&lt;-, -&gt;)</p></td>
+<td><p>Diatonic interval with previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>chromaticinterval</cite></p></td>
+<td><p>int</p></td>
+<td><p>(&lt;-, -&gt;)</p></td>
+<td><p>Chromatic interval (diff of midipitch) with respect to previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>tonic</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘A’, …, ‘G’} x {‘-‘, ‘’, ‘#’}</p></td>
+<td><p>Pitch class of the tonic for the current note.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>mode</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘major’, ‘minor’, ‘dorian’, …, ‘locrian’}</p></td>
+<td><p>Mode for the current note.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>scaledegree</cite></p></td>
+<td><p>int</p></td>
+<td><p>[1, …, 7]</p></td>
+<td><p>Scale degree of the pitch.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>scaledegreespecifier</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘P’, ‘M’, ‘m’, ‘A’, ‘d’, …}</p></td>
+<td><p>Specifier of the scaledegree: Perfect, Major, Minor, Augmented, Diminished, … above the tonic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>diatonicpitch</cite></p></td>
+<td><p>int</p></td>
+<td><p>[0, -&gt;)</p></td>
+<td><p>Diatonic pitch of the note. Tonic in octave 0 gets value 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>timesignature</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>‘n/d’</p></td>
+<td><p>Time signature for the current note. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beatstrength</cite></p></td>
+<td><p>float</p></td>
+<td><p>(0.0, …, 1.0]</p></td>
+<td><p>Metric weight (beatStrength) of the onset time of the note as computed by music21. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>metriccontour</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘-‘, ‘=’, ‘+’}</p></td>
+<td><p>Contour of metric weight (beatstrength) with respect to the previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>imaweight</cite></p></td>
+<td><p>float</p></td>
+<td><p>[0.0, …, 1.0]</p></td>
+<td><p>Metric weight as computed by Inner Metric Analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>imacontour</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘-‘, ‘=’, ‘+’}</p></td>
+<td><p>Contour of metric weight (ima weight) with respect to the previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>duration</cite></p></td>
+<td><p>float</p></td>
+<td><p>[0.0, -&gt;)</p></td>
+<td><p>Duration of the (possibly tied) note. Quarter note has duration 1.0.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>duration_frac</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Quarterlength of the (possibly tied) note as fraction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>duration_fullname</cite></p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>Full name of the duration as generated by music21.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>IOR</cite></p></td>
+<td><p>float</p></td>
+<td><p>(0.0, -&gt;)</p></td>
+<td><p>Duration of the note with respect to the duration of the previous note. Duration is inter-onset interval. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>onsettick</cite></p></td>
+<td><p>int</p></td>
+<td><p>[0,-&gt;)</p></td>
+<td><p>Onset of the note in MIDI ticks.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>nextisrest</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the note is followed by a rest. Last note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beatfraction</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Duration of the note with respect to length of the beat. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beat_str</cite></p></td>
+<td><p>Integer (string)</p></td>
+<td><p>{‘1’, … }</p></td>
+<td><p>Beat in the measure, the note is in. First beat is ‘1’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beat_fraction_str</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Position of the onset time of the note relative to the beat in the measure. Note on the beat has value ‘0’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beat</cite></p></td>
+<td><p>float</p></td>
+<td><p>[1.0, -&gt;)</p></td>
+<td><p>Position of the onset time of the note relative to the measure in units of the beat. First beat is 1.0. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>songpos</cite></p></td>
+<td><p>float</p></td>
+<td><p>[0.0, …, 1.0]</p></td>
+<td><p>Onset time of the note in the song. Onset time of the first note is 0.0. Onset time of the last note is 1.0.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beatinsong</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Onset time of the note in units of the beat length. First note in the first full bar has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>phrase_ix</cite></p></td>
+<td><p>int</p></td>
+<td><p>[0, -&gt;)</p></td>
+<td><p>Serial number of the phrase the note is in. First phrase is 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>phrasepos</cite></p></td>
+<td><p>float</p></td>
+<td><p>[0.0, …, 1.0]</p></td>
+<td><p>Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>phraseend</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the note is the last in a phrase.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beatinphrase</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Onset time of the note in the phrase in units of the beat length. First note in the first full bar has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beatinphrase_end</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Onset time of the note in the phrase in units of the beat length. The last note that starts on the beat has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>melismastatus</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘end’, ‘start’, ‘in’}</p></td>
+<td><p>In what way the note is part of a melisma. <cite>end</cite>: last note of a melisma (also for syllabic lyrics). <cite>in</cite>: middle note. <cite>start</cite>: first note of a melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>lyrics</cite></p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>Lyric syllable that goes with the note. Leading <cite>-</cite> indicates continuation of a word. Trailing <cite>-</cite> indicates the word to be continued. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>noncontentword</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the lyric is a non content word in the Dutch language. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>wordend</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the syllable at the note is the last (or only) in the word. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>wordstress</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the syllable at the note is stressed.  Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>phoneme</cite></p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>Phonemic representation of the syllable at the note. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>rhymes</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the word that ends at the note rhymes with another word anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>rhymescontentwords</cite></p></td>
+<td><p>bool</p></td>
+<td><p>{true, false}</p></td>
+<td><p>Whether the word that ends at the note rhymes with another word (non content words excluded) anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basicusage.html" class="btn btn-neutral float-right" title="Basic Functionality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Peter van Kranenburg
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

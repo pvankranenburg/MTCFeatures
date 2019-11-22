@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; MTCFeatures 1.0 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Source Documentation" href="sourcedoc.html" />
+    <link rel="prev" title="Basic Functionality" href="basicusage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melodyrepresentation.html">Melody Representation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#apply-a-filter">Apply a filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-a-filter">Register a filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#various-examples">Various Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MTCFeatures 1.0</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="apply-a-filter">
+<h2>Apply a filter<a class="headerlink" href="#apply-a-filter" title="Permalink to this headline">¶</a></h2>
+<p>Keep only the vocal songs (i.e., drop instrumental pieces):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;vocal&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seq_iter</span><span class="p">:</span>
+        <span class="n">dosomething</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If a filter has arguments, these sould be provided with the filtername as tuple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;afteryear&#39;</span><span class="p">,</span> <span class="mi">1950</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;betweenyears&#39;</span><span class="p">,</span> <span class="mi">1850</span><span class="p">,</span> <span class="mi">1900</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Keep only songs in tune families with more than 10 members:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">minClassSizeFilter</span><span class="p">(</span><span class="s1">&#39;tunefamily&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A filter can be inverted by setting argument invert to True:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;afteryear&#39;</span><span class="p">,</span> <span class="mi">1950</span><span class="p">),</span> <span class="n">invert</span><span class="o">=</span><span class="bp">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>A chain of filters can be applied with the <cite>applyFilters</cite> method. The filters will be applied in the order provided.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilters</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;vocal&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;freemeter&#39;</span><span class="p">,</span> <span class="s1">&#39;invert&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:(</span><span class="s1">&#39;afteryear&#39;</span><span class="p">,</span><span class="mi">1850</span><span class="p">)}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-a-filter">
+<h2>Register a filter<a class="headerlink" href="#register-a-filter" title="Permalink to this headline">¶</a></h2>
+<p>To register a new filter, use method <cite>registerMelodyFilter</cite> in the <cite>MTCFeatureLoader</cite> class. The filter should
+be a function returning True if the melody should be kept.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">registerFilter</span><span class="p">(</span><span class="s1">&#39;vocal&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;vocal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Register a filter with arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">registerFilter</span><span class="p">(</span><span class="s1">&#39;afteryear&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="various-examples">
+<h2>Various Examples<a class="headerlink" href="#various-examples" title="Permalink to this headline">¶</a></h2>
+<p>Only use the midipitch from all songs in MTC-ANN-2.0.1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;midipitch&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Use midipitch and duration from all songs in MTC-ANN-2.0.1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;midipitch&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Use intervals and inter onset interval ratios from all songs in MTC-ANN-2.0.1 and get rid of the None values for the first note:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;chromaticinterval&#39;</span><span class="p">,</span> <span class="s1">&#39;IOR&#39;</span><span class="p">])</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">replaceNone</span><span class="p">(</span><span class="n">seq_iter</span><span class="o">=</span><span class="n">seq_iter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use scale degree, metric contour and beat position from all songs in MTC-ANN-2.0.1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;scaledegree&#39;</span><span class="p">,</span><span class="s1">&#39;metriccontour&#39;</span><span class="p">,</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">])</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFeatureExtractor</span><span class="p">(</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">seq_iter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get backgroundcorpus for MTC-ANN from MTC-FS-INST:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;ann_bgcorpus&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get labeled songs in Onder de groene linde:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilters</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;inOGL&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;labeled&#39;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Keep only those in tune families with more than 2 melodies:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">minClassSizeFilter</span><span class="p">(</span><span class="s1">&#39;tunefamily&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">seq_iter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use labeled 17th and 18th century fiddle music only:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">sel_instr</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;instrumental&#39;</span><span class="p">)</span>
+<span class="n">sel_17th18th_c</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;betweenyears&#39;</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">),</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_instr</span> <span class="p">)</span>
+<span class="n">sel_labeled</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;labeled&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_17th18th_c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilters</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;instrumental&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;labeled&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:(</span><span class="s1">&#39;betweenyears&#39;</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Use big tune families (&gt;=20 melodies):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">sel_big</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">minClassSizeFilter</span><span class="p">(</span><span class="s1">&#39;tunefamily&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use small tune families (&lt;=5 melodies) only:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">sel_small</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">maxClassSizeFilter</span><span class="p">(</span><span class="s1">&#39;tunefamily&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use only melodies with given identifiers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NLB125814_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125815_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125817_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125818_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125822_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125823_01&#39;</span><span class="p">]</span>
+<span class="n">sel_list</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;inNLBIDs&#39;</span><span class="p">,</span> <span class="n">id_list</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Use only instrumental melodies from tune family 2805_0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">tf_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2805_0&#39;</span><span class="p">]</span>
+<span class="n">sel_list</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;inTuneFamilies&#39;</span><span class="p">,</span> <span class="n">tf_list</span><span class="p">),</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;instrumental&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Write the result to a gzipped .jsonl file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">writeJSON</span><span class="p">(</span><span class="s1">&#39;2805_0.jsonl.gz&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get vocal melodies that have a meter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilters</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;vocal&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;freemeter&#39;</span><span class="p">,</span> <span class="s1">&#39;invert&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sourcedoc.html" class="btn btn-neutral float-right" title="Source Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basicusage.html" class="btn btn-neutral float-left" title="Basic Functionality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Peter van Kranenburg
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Source Documentation &mdash; MTCFeatures 1.0 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melodyrepresentation.html">Melody Representation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Source Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MTCFeatures 1.0</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Source Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sourcedoc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-MTCFeatures.MTCFeatureLoader">
+<span id="source-documentation"></span><h1>Source Documentation<a class="headerlink" href="#module-MTCFeatures.MTCFeatureLoader" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader">
+<em class="property">class </em><code class="sig-prename descclassname">MTCFeatures.MTCFeatureLoader.</code><code class="sig-name descname">MTCFeatureLoader</code><span class="sig-paren">(</span><em class="sig-param">jsonpath</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for loading and processing melody sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jsonpath</strong> (<em>string</em>) – Either the filename of a .jsonl file containing melody sequences, or one
+of the predefined names <code class="docutils literal notranslate"><span class="pre">MTC-ANN-2.0.1</span></code>, <code class="docutils literal notranslate"><span class="pre">MTC-FS-INST-2.0</span></code>, or <code class="docutils literal notranslate"><span class="pre">ESSEN</span></code>.
+If the filename ends with .gz, the data file is assumed to be gzipped.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.jsonpath">
+<code class="sig-name descname">jsonpath</code><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.jsonpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filename of a .jsonl file containing melody sequences. If the filename
+ends with .gz, the file is gunzipped first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.filterBank">
+<code class="sig-name descname">filterBank</code><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.filterBank" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of (lambda) functions to be used to filter the sequences.
+The keys are the names of the filters. A filter can be applied with the
+<cite>applyFilter</cite> or <cite>applyFilters</cite> methods. The <cite>filerBank</cite> is initially
+populated with a number of predefined filters. A filter can be added to
+the filterBank with the <cite>registerFilter</cite> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.featureExtractors">
+<code class="sig-name descname">featureExtractors</code><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.featureExtractors" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of (lambda) functions that compute new features from existing
+features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.NoneReplacers">
+<code class="sig-name descname">NoneReplacers</code><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.NoneReplacers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of (lambda) functions, each taking a list of feature values
+and returning the list with all occurrences of None replaced with a
+value. The keys are names of features. The <cite>NoneReplacers</cite> dict is used
+by the method <cite>replaceNone</cite>. For each feature for which a NoneReplacer
+is present in the <cite>NoneReplacers</cite> dictionary, this NoneReplacer is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.applyFilter">
+<code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span><em class="sig-param">mfilter</em>, <em class="sig-param">invert=False</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.applyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a melody filter. Only keep those melodies that are passed by the filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mfilter</strong> (<em>string</em><em> or </em><em>tuple</em>) – Name of the filter as registered in <cite>filterBank</cite>. If the filter has arguments,
+this should be a tuple of the filter name and the arguments.</p></li>
+<li><p><strong>invert</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, invert the filter. Only keep those melodies for which the condition is False.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence that is passed by the filter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.applyFilters">
+<code class="sig-name descname">applyFilters</code><span class="sig-paren">(</span><em class="sig-param">filter_list</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.applyFilters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a chain of filters. Only keep those melodies that are passed by all filters.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<span class="n">fsinst_dl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">vocal_seqs</span> <span class="o">=</span> <span class="n">fsinst_dl</span><span class="o">.</span><span class="n">applyFilters</span><span class="p">([</span>
+    <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s1">&#39;freemeter&#39;</span><span class="p">,</span> <span class="s1">&#39;invert&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:</span><span class="s2">&quot;vocal&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;mfilter&#39;</span><span class="p">:(</span><span class="s2">&quot;afteryear&quot;</span><span class="p">,</span><span class="mi">1850</span><span class="p">)}</span> <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now <cite>vocal_seqs</cite> is an iterator over all vocal melodies published after 1850 that do not have free meter,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filter_list</strong> (**kwargs for <cite>applyFilter</cite>) – Chains a number of <cite>applyFilter</cite> calls with **kwargs as provided.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence that is passed by the filter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.getFeatureNames">
+<code class="sig-name descname">getFeatureNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.getFeatureNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the names of the features present in the Melody Sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>featnames</strong> – Names of the features as present in the FIRST melody in source file <cite>jsonpath</cite>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.head">
+<code class="sig-name descname">head</code><span class="sig-paren">(</span><em class="sig-param">n=10</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields the first <cite>n</cite> melodies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>default=10</em>) – the number of sequences to yield.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.maxClassSizeFilter">
+<code class="sig-name descname">maxClassSizeFilter</code><span class="sig-paren">(</span><em class="sig-param">classfeature</em>, <em class="sig-param">maxsize=9223372036854775807</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.maxClassSizeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only melodies in tune families with &lt;= <code class="docutils literal notranslate"><span class="pre">maxsize</span></code> members.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>classfeature</strong> (<em>string</em>) – name of the feature that is used to group the melodies.</p></li>
+<li><p><strong>maxsize</strong> (<em>int</em><em>, </em><em>default=sys.maxsize</em>) – Maximum size of classes to keep.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence for melody in a class with maximum size <cite>maxsize</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.merge_sequences">
+<code class="sig-name descname">merge_sequences</code><span class="sig-paren">(</span><em class="sig-param">from_file</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.merge_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges features from provided file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_file</strong> (<em>string</em>) – File name of a .jsonl file from which the feature sequences will be imported.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence with features from <cite>from_file</cite> included.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.minClassSizeFilter">
+<code class="sig-name descname">minClassSizeFilter</code><span class="sig-paren">(</span><em class="sig-param">classfeature</em>, <em class="sig-param">minsize=0</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.minClassSizeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only melodies in tune families with &gt;= <code class="docutils literal notranslate"><span class="pre">minsize</span></code> members.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>classfeature</strong> (<em>string</em>) – name of the feature that is used to group the melodies.</p></li>
+<li><p><strong>minsize</strong> (<em>int</em><em>, </em><em>default=0</em>) – Minimum size of classes to keep.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence for melody in a class with minimum size <cite>minsize</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.randomSel">
+<code class="sig-name descname">randomSel</code><span class="sig-paren">(</span><em class="sig-param">n=10</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.randomSel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random sample of <cite>n</cite> melodies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>default=10</em>) – the number of sequences to yield.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.registerFilter">
+<code class="sig-name descname">registerFilter</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">mfilter</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.registerFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store a filter in <cite>filterBank</cite>.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<span class="n">fsinst_dl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
+<span class="n">dl</span><span class="o">.</span><span class="n">registerFilter</span><span class="p">(</span><span class="s2">&quot;vocal&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;vocal&quot;</span><span class="p">)</span>
+<span class="n">dl</span><span class="o">.</span><span class="n">registerFilter</span><span class="p">(</span><span class="s2">&quot;afteryear&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now the filter <code class="docutils literal notranslate"><span class="pre">vocal</span></code> is registered that passes all melodies with type vocal.
+And filter <code class="docutils literal notranslate"><span class="pre">afteryear</span></code> with parameter <cite>y</cite> is registered that passes all melodies published after year <cite>y</cite>.
+The filters can be applied with the method <cite>applyFilter</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – name of the filter. This will be used as key in the <cite>filterBank</cite> dictionary.</p></li>
+<li><p><strong>mfilter</strong> (<em>function</em>) – Function that evaluates to True for melodies to be kept.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.replaceNone">
+<code class="sig-name descname">replaceNone</code><span class="sig-paren">(</span><em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.replaceNone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace None values with sensible fall back values.</p>
+<p>For all features for which a NoneReplacer has been registered, replace the None values with sensible fall back values according to the NoneReplacer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence with None values replaced</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.selectFeatures">
+<code class="sig-name descname">selectFeatures</code><span class="sig-paren">(</span><em class="sig-param">featlist</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.selectFeatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feature filter. For all melodies, keep only the indicated features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>featlist</strong> (<em>list of strings</em>) – Names of the features to keep.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence with reduced feature set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.sequences">
+<code class="sig-name descname">sequences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields the list of melodies from the file <cite>jsonpath</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><em>sequence</em> – Melody Sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.tail">
+<code class="sig-name descname">tail</code><span class="sig-paren">(</span><em class="sig-param">n=10</em>, <em class="sig-param">seq_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the last <cite>n</cite> melodies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>default=10</em>) – the number of sequences to yield.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – iterable over melody sequences. If None, take the sequences from <cite>jsonpath</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>sequence</em> – Melody Sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.writeJSON">
+<em class="property">static </em><code class="sig-name descname">writeJSON</code><span class="sig-paren">(</span><em class="sig-param">json_out_path</em>, <em class="sig-param">seq_iter</em><span class="sig-paren">)</span><a class="headerlink" href="#MTCFeatures.MTCFeatureLoader.MTCFeatureLoader.writeJSON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a list of melodies to a .jsonl file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_out_path</strong> (<em>string</em>) – Name of the file to write the json representations of the melodies. If the
+filename ends with .gz, the file is gzipped.</p></li>
+<li><p><strong>seq_iter</strong> (<em>iterable over melody sequences</em>) – Melody sequences to write to the file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Peter van Kranenburg
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
