@@ -5,4 +5,6 @@ The [Meertens Tune Collections](http://www.liederenbank.nl/mtc/) incorporate var
 .. moduleauthor:: Peter van Kranenburg <peter.van.kranenburg@meertens.knaw.nl>
 """
 
+from .MTCFeatureLoader import MTCFeatureLoader
+
 name = "MTCFeatures"

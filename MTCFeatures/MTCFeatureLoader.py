@@ -10,9 +10,9 @@ from itertools import filterfalse, groupby
 __modpath = Path(__file__).resolve().parent
 
 datapaths = {
-    'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences-1.0.jsonl.gz'),
-    'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences-1.0.jsonl.gz'),
-    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences-1.0.jsonl.gz')
+    'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences-1.1.jsonl.gz'),
+    'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences-1.1.jsonl.gz'),
+    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences-1.1.jsonl.gz')
 }
 
 class MTCFeatureLoader:
@@ -79,7 +79,7 @@ class MTCFeatureLoader:
             return (rn >= 70000 and rn < 80250) or rn == 176897
 
         self.registerFilter("inOGL", lambda x: inOGL(x["id"]))
-        self.registerFilter("inOrigin", lambda y: lambda x: y in x["origin"].split('/'))
+        self.registerFilter("origin", lambda y: lambda x: y in x["origin"])
         self.registerFilter("inNLBIDs", lambda id_list: lambda x: x["id"] in id_list)
         self.registerFilter(
             "inTuneFamilies", lambda tf_list: lambda x: x["tunefamily"] in tf_list
@@ -375,7 +375,7 @@ class MTCFeatureLoader:
         
         .. code-block:: python
 
-            from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+            from MTCFeatures import MTCFeatureLoader
             fsinst_dl = MTCFeatureLoader('MTC-FS-INST-2.0')
             vocal_seqs = fsinst_dl.applyFilters([
                 {'mfilter':'freemeter', 'invert':True},
@@ -410,7 +410,7 @@ class MTCFeatureLoader:
         -------
         .. code-block:: python
 
-            from MTCFeatures.MTCFeatureLoader import MTCFeatureLoader
+            from MTCFeatures import MTCFeatureLoader
             fsinst_dl = MTCFeatureLoader('MTC-FS-INST-2.0')
             dl.registerFilter("vocal", lambda x: x["type"] == "vocal")
             dl.registerFilter("afteryear", lambda y: lambda x: x["year"] > y)
