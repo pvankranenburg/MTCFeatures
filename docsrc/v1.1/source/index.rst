@@ -1,5 +1,5 @@
-MTCFeatures
-===========
+MTCFeatures 1.1
+===============
 
 .. toctree::
    :maxdepth: 2
@@ -11,6 +11,7 @@ MTCFeatures
    basicusage
    examples
    sourcedoc
+   changelog
 
 Indices and tables
 ==================

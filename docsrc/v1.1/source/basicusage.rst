@@ -49,6 +49,7 @@ The following filters are registered in class `MTCFeatureLoader`:
 - ``inNLBIDs(id_list)`` : Only keep melodies with given identifiers in id_list
 - ``inTuneFamilies(tf_list)`` : Only keep melodies in given tune families in tf_list
 - ``inInstTest`` : Only keep melodies that are in cINST.
+- ``origin(location)`` : Only keep melodies originating from ``location`` (only for Essen).
 
 Available as separate functions:
 
@@ -63,10 +64,13 @@ For replacement of the None values, a separate rule is included for each of the 
 The following rules are included:
 
 - ``metriccontour``:       None -> '=' if all items in the sequence are None. None -> '+' if only the first item is None.
-- ``imacontour``:          First note: None -> '+'
-- ``contour3``:            First note: None -> '='
-- ``contour5``:            First note: None -> '='
-- ``IOR``:                 First note: None -> 1.0
+- ``imacontour``:          First note: None -> "+"
+- ``contour3``:            First note: None -> "="
+- ``contour5``:            First note: None -> "="
+- ``IOR``:                 First, and possibly last notes: None -> 1.0
+- ``IOR_frac``:            First, and possibly last notes: None -> "1"
+- ``durationcontour``:     First note: None -> "="
+- ``restduration_frac``:   None -> "0"
 - ``diatonicinterval``:    First note: None -> 0
 - ``chromaticinterval``:   First note: None -> 0
 - ``nextisrest``:          Last note: None -> True
@@ -86,3 +90,5 @@ The following rules are included:
 - ``rhymes``:              None -> False
 - ``rhymescontentwords``:  None -> False
 - ``wordstress``:          None -> False
+
+For the different models from the literature (LBDM, GTTM, IR) no None-replacers are included.
