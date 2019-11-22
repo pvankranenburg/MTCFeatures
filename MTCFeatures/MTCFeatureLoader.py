@@ -223,7 +223,7 @@ class MTCFeatureLoader:
                 'rhymescontentwords': lambda featseq: [(False if val==None else val) for val in featseq],
                 'wordstress':         lambda featseq: [(False if val==None else val) for val in featseq],
                 #Version 1.1
-                'IOR_frac' :          lambda featseq: [("1" if ix==0 else val) for ix, val in enumerate(featseq)],
+                'IOR_frac' :          lambda featseq: [("1" if ix==0 or ix==len(featseq)-1 else val) for ix, val in enumerate(featseq)],
                 'durationcontour':    lambda featseq: [("=" if ix==0 else val) for ix, val in enumerate(featseq)],                
                 'restduration_frac':  lambda featseq: [("0" if val==None else val) for val in featseq],
             }
