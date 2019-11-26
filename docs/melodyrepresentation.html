@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Melody Representation &mdash; MTCFeatures 1.0 documentation</title>
+  <title>Melody Representation &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> MTCFeatures
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.1
           
 
           
@@ -85,10 +85,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Melody Representation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Melody Representation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -103,7 +107,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">MTCFeatures</a>
+          <a href="index.html">MTCFeatures 1.1</a>
         
       </nav>
 
@@ -163,18 +167,19 @@
  <span class="s1">&#39;tunefamily&#39;</span><span class="p">:</span> <span class="s1">&#39;1302_0&#39;</span><span class="p">,</span>
  <span class="s1">&#39;tunefamily_full&#39;</span><span class="p">:</span> <span class="s1">&#39;Contre les chagrins de la vie&#39;</span><span class="p">,</span>
  <span class="s1">&#39;ann_bgcorpus&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
- <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;pitch40&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span>    <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">135</span><span class="p">],</span>
-              <span class="s1">&#39;scaledegree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>    <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-              <span class="s1">&#39;scaledegreespecifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;pitch40&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span>      <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">135</span><span class="p">],</span>
+                          <span class="s1">&#39;scaledegree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                          <span class="s1">&#39;scaledegreespecifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">],</span>
 
-              <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 
-              <span class="s1">&#39;phrasepos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.071429</span><span class="p">,</span> <span class="mf">0.142857</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">0.833333</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-              <span class="s1">&#39;songpos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.007142857142857143</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">1.0</span><span class="p">]}</span>
+                          <span class="s1">&#39;phrasepos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.071429</span><span class="p">,</span> <span class="mf">0.142857</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">0.833333</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                          <span class="s1">&#39;songpos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.007142857142857143</span><span class="p">,</span>  <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="mf">1.0</span><span class="p">]}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this example the metadata fields are <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily_full</span></code>, <code class="docutils literal notranslate"><span class="pre">freemeter</span></code>, and <code class="docutils literal notranslate"><span class="pre">ann_bgcorpus</span></code>. The named object <code class="docutils literal notranslate"><span class="pre">features</span></code> contains several sequences of feature values.</p>
+<p>In this example the metadata fields are <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily</span></code>, <code class="docutils literal notranslate"><span class="pre">tunefamily_full</span></code>, <code class="docutils literal notranslate"><span class="pre">freemeter</span></code>, <code class="docutils literal notranslate"><span class="pre">ann_bgcorpus</span></code>, and <code class="docutils literal notranslate"><span class="pre">origin</span></code>. The named object <code class="docutils literal notranslate"><span class="pre">features</span></code> contains several sequences of feature values.</p>
 <p>One feature sequence corresponds with the sequence of notes in the given melody. Rests and grace notes are not represented. Consecutive tied notes are represented with one value.</p>
 <p>The following meta data fields are included:</p>
 <table class="colwidths-given docutils align-default" id="id1">
@@ -210,6 +215,9 @@
 <tr class="row-even"><td><p><cite>ann_bgcorpus</cite> (bool)</p></td>
 <td><p>The songs in MTC-FS-INST-2.0 for which this value is True are unrelated to the songs in MTC-ANN-2.0.1.</p></td>
 </tr>
+<tr class="row-odd"><td><p><cite>origin</cite> (string)</p></td>
+<td><p>The path of the **kern file in the ESSEN collection, mostly indicating the geographic origin of the melody.</p></td>
+</tr>
 </tbody>
 </table>
 <p>Melodies from the ESSEN collection have the following (fall back) values for the metadata fields:</p>
@@ -222,6 +230,18 @@
 <li><p><cite>tunefamily_full</cite> = “”</p></li>
 </ul>
 </div></blockquote>
+<p>For melodies from the MTC, the <cite>origin</cite> metadata field is empty.</p>
+<p>Various features are represented as rational numbers. This is to avoid precision problems
+that would arise with representation of certain durations as float. For example, the duration of a
+eight triplet note is precisely represented by 1/12, but it has no exact decimal representation:
+0.833333333… The fractions module that is part of the standard library of Python can be used
+to handle these values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">triplet_eight</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;1/12&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">triplet_eight</span><span class="p">))</span>
+<span class="go">0.0833333333333</span>
+</pre></div>
+</div>
 <p>The following table presents a semi-formal description of the features that are included for each note:</p>
 <table class="colwidths-given docutils align-default" id="id2">
 <caption><span class="caption-text">Features</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
@@ -317,7 +337,7 @@
 <tr class="row-odd"><td><p><cite>imaweight</cite></p></td>
 <td><p>float</p></td>
 <td><p>[0.0, …, 1.0]</p></td>
-<td><p>Metric weight as computed by Inner Metric Analysis.</p></td>
+<td><p>Metric weight as computed by Inner Metric Analysis (Nestke and Noll, 2001).</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>imacontour</cite></p></td>
 <td><p>string</p></td>
@@ -327,7 +347,7 @@
 <tr class="row-odd"><td><p><cite>duration</cite></p></td>
 <td><p>float</p></td>
 <td><p>[0.0, -&gt;)</p></td>
-<td><p>Total duration of the (possibly tied) note and (possibly) following rest. Whole note has duration 1.0. [This will change in version 1.1: Duration of the (possibly tied) note. Quarter note has duration 1.0.]</p></td>
+<td><p>Duration of the (possibly tied) note. Quarter note has duration 1.0.</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>duration_frac</cite></p></td>
 <td><p>Fraction (string)</p></td>
@@ -339,118 +359,223 @@
 <td></td>
 <td><p>Full name of the duration as generated by music21.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>IOR</cite></p></td>
+<tr class="row-even"><td><p><cite>durationcontour</cite></p></td>
+<td><p>string</p></td>
+<td><p>{‘-‘, ‘=’, ‘+’}</p></td>
+<td><p>Whether the duration of the note is shorter <code class="docutils literal notranslate"><span class="pre">-</span></code>, equal <code class="docutils literal notranslate"><span class="pre">=</span></code> or longer <code class="docutils literal notranslate"><span class="pre">+</span></code> than the previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>IOI</cite></p></td>
 <td><p>float</p></td>
 <td><p>(0.0, -&gt;)</p></td>
-<td><p>Duration of the note with respect to the duration of the previous note. Duration is inter-onset interval. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+<td><p>Length of the time interval between the onset of the note and the onset of the next note. Quarternote is 1.0. Last note has <code class="docutils literal notranslate"><span class="pre">None</span></code> unles a rest follows.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>IOI_frac</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>IOI represented as fraction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>IOR</cite></p></td>
+<td><p>float</p></td>
+<td><p>(0.0, -&gt;)</p></td>
+<td><p>IOI of the note with respect to IOI of the previous note. First note has <code class="docutils literal notranslate"><span class="pre">None</span></code>. Last note has <code class="docutils literal notranslate"><span class="pre">None</span></code> unles a rest follows.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>IOR_frac</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>IOR represented as fraction.</p></td>
 </tr>
 <tr class="row-odd"><td><p><cite>onsettick</cite></p></td>
 <td><p>int</p></td>
 <td><p>[0,-&gt;)</p></td>
-<td><p>Onset of the note in MIDI ticks.</p></td>
+<td><p>Onset of the note in MIDI ticks. Onset of the first note is 0. Number of ticks per quarter note is based on greatest common divisor of all durations.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beatfraction</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Duration of the note with respect to length of the beat. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beat_str</cite></p></td>
+<td><p>Integer (string)</p></td>
+<td><p>{‘1’, … }</p></td>
+<td><p>Beat in the measure, the note is in. First beat is ‘1’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beat_fraction_str</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Position of the onset time of the note relative to the beat in the measure. Note on the beat has value ‘0’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beat</cite></p></td>
+<td><p>float</p></td>
+<td><p>[1.0, -&gt;)</p></td>
+<td><p>Position of the onset time of the note relative to the measure in units of the beat. First beat is 1.0. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>songpos</cite></p></td>
+<td><p>float</p></td>
+<td><p>[0.0, …, 1.0]</p></td>
+<td><p>Onset time of the note in the song. Onset time of the first note is 0.0. Onset time of the last note is 1.0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>beatinsong</cite></p></td>
+<td><p>Fraction (string)</p></td>
+<td><p>{‘n/d’, ‘n’}</p></td>
+<td><p>Onset time of the note in units of the beat length. First note in the first full bar has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
 </tr>
 <tr class="row-even"><td><p><cite>nextisrest</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the note is followed by a rest. Last note has <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>beatfraction</cite></p></td>
+<tr class="row-odd"><td><p><cite>restduration_frac</cite></p></td>
 <td><p>Fraction (string)</p></td>
 <td><p>{‘n/d’, ‘n’}</p></td>
-<td><p>Duration of the note with respect to length of the beat. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+<td><p>Duration of the rest(s) that follow the note. As fraction. Quarterlength is 1. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no rest follows.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>beat_str</cite></p></td>
-<td><p>Integer (string)</p></td>
-<td><p>{‘1’, … }</p></td>
-<td><p>Beat in the measure, the note is in. First beat is ‘1’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><cite>beat_fraction_str</cite></p></td>
-<td><p>Fraction (string)</p></td>
-<td><p>{‘n/d’, ‘n’}</p></td>
-<td><p>Position of the onset time of the note relative to the beat in the measure. Note on the beat has value ‘0’. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
-</tr>
-<tr class="row-even"><td><p><cite>beat</cite></p></td>
-<td><p>float</p></td>
-<td><p>[1.0, -&gt;)</p></td>
-<td><p>Position of the onset time of the note relative to the measure in units of the beat. First beat is 1.0. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><cite>songpos</cite></p></td>
-<td><p>float</p></td>
-<td><p>[0.0, …, 1.0]</p></td>
-<td><p>Onset time of the note in the song. Onset time of the first note is 0.0. Onset time of the last note is 1.0.</p></td>
-</tr>
-<tr class="row-even"><td><p><cite>beatinsong</cite></p></td>
-<td><p>Fraction (string)</p></td>
-<td><p>{‘n/d’, ‘n’}</p></td>
-<td><p>Onset time of the note in units of the beat length. First note in the first full bar has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><cite>phrase_ix</cite></p></td>
+<tr class="row-even"><td><p><cite>phrase_ix</cite></p></td>
 <td><p>int</p></td>
 <td><p>[0, -&gt;)</p></td>
 <td><p>Serial number of the phrase the note is in. First phrase is 0.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>phrasepos</cite></p></td>
+<tr class="row-odd"><td><p><cite>phrasepos</cite></p></td>
 <td><p>float</p></td>
 <td><p>[0.0, …, 1.0]</p></td>
 <td><p>Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>phraseend</cite></p></td>
+<tr class="row-even"><td><p><cite>phraseend</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the note is the last in a phrase.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>beatinphrase</cite></p></td>
+<tr class="row-odd"><td><p><cite>beatinphrase</cite></p></td>
 <td><p>Fraction (string)</p></td>
 <td><p>{‘n/d’, ‘n’}</p></td>
 <td><p>Onset time of the note in the phrase in units of the beat length. First note in the first full bar has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>beatinphrase_end</cite></p></td>
+<tr class="row-even"><td><p><cite>beatinphrase_end</cite></p></td>
 <td><p>Fraction (string)</p></td>
 <td><p>{‘n/d’, ‘n’}</p></td>
-<td><p>Onset time of the note in the phrase in units of the beat length. The last note that starts on the beat has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
+<td><p>Onset time of the note in the phrase in units of the beat length. The note that starts on the first beat of the last measure has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>melismastatus</cite></p></td>
+<tr class="row-odd"><td><p><cite>melismastatus</cite></p></td>
 <td><p>string</p></td>
 <td><p>{‘end’, ‘start’, ‘in’}</p></td>
 <td><p>In what way the note is part of a melisma. <cite>end</cite>: last note of a melisma (also for syllabic lyrics). <cite>in</cite>: middle note. <cite>start</cite>: first note of a melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>lyrics</cite></p></td>
+<tr class="row-even"><td><p><cite>lyrics</cite></p></td>
 <td><p>string</p></td>
 <td></td>
-<td><p>Lyric syllable that goes with the note. Leading <cite>-</cite> indicates continuation of a word. Trailing <cite>-</cite> indicates the word to be continued. Only at first note of melisma. Vocal melodies only.</p></td>
+<td><p>Lyric syllable that goes with the note. Leading <code class="docutils literal notranslate"><span class="pre">-</span></code> indicates continuation of a word. Trailing <code class="docutils literal notranslate"><span class="pre">-</span></code> indicates the word to be continued. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>noncontentword</cite></p></td>
+<tr class="row-odd"><td><p><cite>noncontentword</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the lyric is a non content word in the Dutch language. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>wordend</cite></p></td>
+<tr class="row-even"><td><p><cite>wordend</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the syllable at the note is the last (or only) in the word. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>wordstress</cite></p></td>
+<tr class="row-odd"><td><p><cite>wordstress</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the syllable at the note is stressed.  Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>phoneme</cite></p></td>
+<tr class="row-even"><td><p><cite>phoneme</cite></p></td>
 <td><p>string</p></td>
 <td></td>
 <td><p>Phonemic representation of the syllable at the note. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>rhymes</cite></p></td>
+<tr class="row-odd"><td><p><cite>rhymes</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the word that ends at the note rhymes with another word anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>rhymescontentwords</cite></p></td>
+<tr class="row-even"><td><p><cite>rhymescontentwords</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the word that ends at the note rhymes with another word (non content words excluded) anywhere in the lyrics of the song. Only at first note of melisma. Vocal melodies only.</p></td>
 </tr>
+<tr class="row-odd"><td><p><cite>gpr2a_Frankland</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Boundary strength of the boundary following the note according to Quantification of GTTM’s GPR 2a by Frankland and Cohen (2004).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>gpr2b_Frankland</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Boundary strength of the boundary following the note according to Quantification of GTTM’s GPR 2b by Frankland and Cohen (2004).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>gpr3a_Frankland</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Boundary strength of the boundary following the note according to Quantification of GTTM’s GPR 3a by Frankland and Cohen (2004).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>gpr3d_Frankland</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Boundary strength of the boundary following the note according to Quantification of GTTM’s GPR 3d by Frankland and Cohen (2004).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>gpr_Frankland_sum</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Sum of boundary strengths for Quantified GPRs 2a, 2b, 3a, and 3d.</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>lbdm_boundarystrength</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Overall Local Boundary Strength for the boundary following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>lbdm_spitch</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Strength of the pitch boundary following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>lbdm_sioi</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Strength of the IOI boundary following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>lbdm_srest</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Strength of the Rest boundary following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>lbdm_rpitch</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Degree of change for the pitch interval following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>lbdm_rioi</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Degree of change for the inter-onset interval following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>lbdm_rrest</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Degree of change for the rest following the note according to the Local Boundary Detection Model (Cambouropoulos, 2001).</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>pitchproximity</cite></p></td>
+<td><p>int</p></td>
+<td></td>
+<td><p>Expectancy of the note according to Factor 1 (pitchproximity) of the two-factor reduction of Narmour’s (1990) IR by Schellenberg (1997).</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>pitchreversal</cite></p></td>
+<td><p>float</p></td>
+<td></td>
+<td><p>Expectancy of the note according to Factor 2 (pitchreversal) of the two-factor reduction of Narmour’s (1990) IR by Schellenberg (1997).</p></td>
+</tr>
 </tbody>
 </table>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cambouropoulos, E. (2001). The Local Boundary Detection Model (LBDM) and its Application in the Study of Expressive Timing. In <em>Proceedings of the International Computer Music Conference,</em> Havana.</p></li>
+<li><p>Frankland, B.W. &amp; Cohen, A.J. (2004). Parsing of Melody: Quantification and Testing of the Local Grouping Rules of Lerdahl and Jackendoff’s A Generative Theory of Tonal Music. <em>Music Perception,</em> 21(4), 499-543.</p></li>
+<li><p>Narmour, E. (1990). <em>The Analysis and Cognition of Basic Melodic Structures - The Implication-Realization Model.</em> Chicago and London: The University of Chicago Press.</p></li>
+<li><p>Nestke, A. &amp; Noll, T. (2001). Inner Metric Analysis. In Haluska, J. (ed.), <em>Music and Mathematics</em> (91–111). Bratislava: Tatra Mountains Publications.</p></li>
+<li><p>Schellenberg, E.G. (1997). Simplifying the Implication-Realization Model of Melodic Expectancy. <em>Music Perception: An Interdisciplinary Journal</em> 14(3), 295-318.</p></li>
+</ul>
+</div>
 </div>
 
 

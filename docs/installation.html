@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; MTCFeatures 1.0 documentation</title>
+  <title>Installation &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> MTCFeatures
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.1
           
 
           
@@ -84,11 +84,19 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-from-pypi">Installation from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-from-source">Installation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-data">Install the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-only">Data only</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="melodyrepresentation.html">Melody Representation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -103,7 +111,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">MTCFeatures</a>
+          <a href="index.html">MTCFeatures 1.1</a>
         
       </nav>
 
@@ -155,14 +163,48 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Download or clone the archive from github and run the included setup.py script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/pvankranenburg/MTCFeatures.git
-$ cd MTCFeatures
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>No third-party Python modules are needed. MTCFeatures is a Python 3 module. Python 2 is not supported.</p>
+</div>
+<div class="section" id="installation-from-pypi">
+<h2>Installation from PyPI<a class="headerlink" href="#installation-from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to install MTCFeatures is using pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install MTCFeatures
+</pre></div>
+</div>
+<p>Next, you need to install the data (see below).</p>
+</div>
+<div class="section" id="installation-from-source">
+<h2>Installation from source<a class="headerlink" href="#installation-from-source" title="Permalink to this headline">¶</a></h2>
+<p>Download the latest release from github and run the included setup.py script:</p>
+<ul>
+<li><p>Visit <a class="reference external" href="https://github.com/pvankranenburg/MTCFeatures/releases">https://github.com/pvankranenburg/MTCFeatures/releases</a></p></li>
+<li><p>Download the latest release</p></li>
+<li><p>In a command shell run the included setup.py script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /path/to/MTCFeatures
 $ python setup.py install
 </pre></div>
 </div>
-<p>If you only want to use the data, visit the <cite>data</cite> directory in the repository
-and download the desired data file: <a class="reference external" href="https://github.com/pvankranenburg/MTCFeatures/tree/master/MTCFeatures/data">https://github.com/pvankranenburg/MTCFeatures/tree/master/MTCFeatures/data</a>.</p>
+</li>
+</ul>
+<p>Next, you need to install the data (see below).</p>
+</div>
+<div class="section" id="install-the-data">
+<h2>Install the data<a class="headerlink" href="#install-the-data" title="Permalink to this headline">¶</a></h2>
+<p>After installing the module, the datafiles need to be installed separately. Execute the following code in Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures</span> <span class="kn">import</span> <span class="n">downloadData</span>
+<span class="n">downloadData</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will install the data files in a platform specific data directory in user space.
+If you want the data files in a system wide directory, which would make the data available to all users, use dest=’system’. Make sure
+you have write permissions in the system wide data directory.</p>
+</div>
+<div class="section" id="data-only">
+<h2>Data only<a class="headerlink" href="#data-only" title="Permalink to this headline">¶</a></h2>
+<p>If you only want to use the data, visit the data repository at Zenodo: <a class="reference external" href="https://zenodo.org/record/3551003">https://zenodo.org/record/3551003</a></p>
+</div>
 </div>
 
 

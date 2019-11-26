@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Functionality &mdash; MTCFeatures 1.0 documentation</title>
+  <title>Basic Functionality &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> MTCFeatures
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.1
           
 
           
@@ -89,6 +89,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -103,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">MTCFeatures</a>
+          <a href="index.html">MTCFeatures 1.1</a>
         
       </nav>
 
@@ -165,7 +166,7 @@ melody. A melody object contains metadata fields and several sequences of featur
 <li><p><code class="docutils literal notranslate"><span class="pre">ESSEN</span></code> - Feature sequences for the melodies in the ESSEN Folksong Collection.</p></li>
 </ul>
 <p>The <cite>MTCFeatureLoader</cite> can be initialized either with one of these, or with a user provided .jsonl or .jsonl.gz file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;../path/to/my/file.jsonl.gz&#39;</span><span class="p">)</span>
@@ -199,6 +200,7 @@ these in the provided order.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">inNLBIDs(id_list)</span></code> : Only keep melodies with given identifiers in id_list</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inTuneFamilies(tf_list)</span></code> : Only keep melodies in given tune families in tf_list</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inInstTest</span></code> : Only keep melodies that are in cINST.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">origin(location)</span></code> : Only keep melodies if <code class="docutils literal notranslate"><span class="pre">location</span></code> occurs somewhere in the origin meta data field (only for Essen).</p></li>
 </ul>
 <p>Available as separate functions:</p>
 <ul class="simple">
@@ -213,10 +215,13 @@ these in the provided order.</p>
 The following rules are included:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">metriccontour</span></code>:       None -&gt; ‘=’ if all items in the sequence are None. None -&gt; ‘+’ if only the first item is None.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">imacontour</span></code>:          First note: None -&gt; ‘+’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">contour3</span></code>:            First note: None -&gt; ‘=’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">contour5</span></code>:            First note: None -&gt; ‘=’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IOR</span></code>:                 First note: None -&gt; 1.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imacontour</span></code>:          First note: None -&gt; “+”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contour3</span></code>:            First note: None -&gt; “=”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contour5</span></code>:            First note: None -&gt; “=”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IOR</span></code>:                 First, and possibly last notes: None -&gt; 1.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IOR_frac</span></code>:            First, and possibly last notes: None -&gt; “1”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">durationcontour</span></code>:     First note: None -&gt; “=”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restduration_frac</span></code>:   None -&gt; “0”</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">diatonicinterval</span></code>:    First note: None -&gt; 0</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">chromaticinterval</span></code>:   First note: None -&gt; 0</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nextisrest</span></code>:          Last note: None -&gt; True</p></li>
@@ -237,6 +242,7 @@ The following rules are included:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">rhymescontentwords</span></code>:  None -&gt; False</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wordstress</span></code>:          None -&gt; False</p></li>
 </ul>
+<p>For the different models from the literature (LBDM, GTTM, IR) no None-replacers are included.</p>
 </div>
 
 

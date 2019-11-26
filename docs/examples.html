@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Examples &mdash; MTCFeatures 1.0 documentation</title>
+  <title>Examples &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> MTCFeatures
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.1
           
 
           
@@ -94,6 +94,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -108,7 +109,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">MTCFeatures</a>
+          <a href="index.html">MTCFeatures 1.1</a>
         
       </nav>
 
@@ -163,7 +164,7 @@
 <div class="section" id="apply-a-filter">
 <h2>Apply a filter<a class="headerlink" href="#apply-a-filter" title="Permalink to this headline">¶</a></h2>
 <p>Keep only the vocal songs (i.e., drop instrumental pieces):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
 <span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;vocal&#39;</span><span class="p">)</span>
 
@@ -171,7 +172,7 @@
         <span class="n">dosomething</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If a filter has arguments, these sould be provided with the filtername as tuple:</p>
+<p>If a filter has arguments, these should be provided with the filter name as tuple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;afteryear&#39;</span><span class="p">,</span> <span class="mi">1950</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
@@ -212,7 +213,7 @@ be a function returning True if the melody should be kept.</p>
 <div class="section" id="various-examples">
 <h2>Various Examples<a class="headerlink" href="#various-examples" title="Permalink to this headline">¶</a></h2>
 <p>Only use the midipitch from all songs in MTC-ANN-2.0.1:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures.MTCFeatureLoader</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MTCFeatures</span> <span class="kn">import</span> <span class="n">MTCFeatureLoader</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
 <span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;midipitch&#39;</span><span class="p">])</span>
 </pre></div>
@@ -230,8 +231,11 @@ be a function returning True if the melody should be kept.</p>
 </div>
 <p>Use scale degree, metric contour and beat position from all songs in MTC-ANN-2.0.1:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-ANN-2.0.1&#39;</span><span class="p">)</span>
-<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">([</span><span class="s1">&#39;scaledegree&#39;</span><span class="p">,</span><span class="s1">&#39;metriccontour&#39;</span><span class="p">,</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">])</span>
-<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFeatureExtractor</span><span class="p">(</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">seq_iter</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFeatureExtractor</span><span class="p">(</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">)</span>
+<span class="n">seq_iter</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">selectFeatures</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;scaledegree&#39;</span><span class="p">,</span><span class="s1">&#39;metriccontour&#39;</span><span class="p">,</span><span class="s1">&#39;full_beat_str&#39;</span><span class="p">],</span>
+        <span class="n">seq_iter</span><span class="o">=</span><span class="n">seq_iter</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Get backgroundcorpus for MTC-ANN from MTC-FS-INST:</p>
@@ -256,7 +260,10 @@ be a function returning True if the melody should be kept.</p>
 <p>Use labeled 17th and 18th century fiddle music only:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
 <span class="n">sel_instr</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;instrumental&#39;</span><span class="p">)</span>
-<span class="n">sel_17th18th_c</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;betweenyears&#39;</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">),</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_instr</span> <span class="p">)</span>
+<span class="n">sel_17th18th_c</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;betweenyears&#39;</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">),</span>
+        <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_instr</span>
+<span class="p">)</span>
 <span class="n">sel_labeled</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;labeled&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_17th18th_c</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -282,18 +289,33 @@ be a function returning True if the melody should be kept.</p>
 </div>
 <p>Use only melodies with given identifiers:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
-<span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NLB125814_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125815_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125817_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125818_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125822_01&#39;</span><span class="p">,</span><span class="s1">&#39;NLB125823_01&#39;</span><span class="p">]</span>
+<span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;NLB125814_01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NLB125815_01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NLB125817_01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NLB125818_01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NLB125822_01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;NLB125823_01&#39;</span>
+<span class="p">]</span>
 <span class="n">sel_list</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;inNLBIDs&#39;</span><span class="p">,</span> <span class="n">id_list</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Use only instrumental melodies from tune family 2805_0:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;MTC-FS-INST-2.0&#39;</span><span class="p">)</span>
 <span class="n">tf_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2805_0&#39;</span><span class="p">]</span>
-<span class="n">sel_list</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;inTuneFamilies&#39;</span><span class="p">,</span> <span class="n">tf_list</span><span class="p">),</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;instrumental&#39;</span><span class="p">))</span>
+<span class="n">sel_list</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;inTuneFamilies&#39;</span><span class="p">,</span> <span class="n">tf_list</span><span class="p">),</span>
+        <span class="n">seq_iter</span><span class="o">=</span><span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s1">&#39;instrumental&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Write the result to a gzipped .jsonl file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">writeJSON</span><span class="p">(</span><span class="s1">&#39;2805_0.jsonl.gz&#39;</span><span class="p">,</span> <span class="n">seq_iter</span><span class="o">=</span><span class="n">sel_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Only keep ESSEN melodies from The Netherlands (For the exact names of the origins, consult the directory tree of the **kern distribution of the Essen Folksong Collection.):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">MTCFeatureLoader</span><span class="p">(</span><span class="s1">&#39;ESSEN&#39;</span><span class="p">)</span>
+<span class="n">sel_dut</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="s1">&#39;europa/nederlan&#39;</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Get vocal melodies that have a meter:</p>

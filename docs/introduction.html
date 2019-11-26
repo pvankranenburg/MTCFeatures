@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; MTCFeatures 1.0 documentation</title>
+  <title>Introduction &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="MTCFeatures" href="index.html" /> 
+    <link rel="prev" title="MTCFeatures 1.1a" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> MTCFeatures
+            <a href="index.html" class="icon icon-home"> MTCFeatures 1.1
           
 
           
@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -103,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">MTCFeatures</a>
+          <a href="index.html">MTCFeatures 1.1</a>
         
       </nav>
 
@@ -161,9 +162,18 @@
 <ul class="simple">
 <li><p>MTC-ANN-2.0.1 - A small set of 360 richly annotated melodies from Dutch sources.</p></li>
 <li><p>MTC-FS-INST-2.0 - A large set of c. 18 thousand melodies from Dutch sources.</p></li>
-<li><p>ESSEN Folksong Collection - A set of c. 6 thousand folk song melodies mainly from Germany.</p></li>
+<li><p>ESSEN Folksong Collection - A set of more than 8 thousand folk song melodies mainly from Germany.</p></li>
 </ul>
 <p>For more information on the contents of the <cite>Meertens Tune Collections</cite>, please visit <a class="reference external" href="http://www.liederenbank.nl/mtc/">http://www.liederenbank.nl/mtc/</a>.</p>
+<p>For the Essen Folk Song Collection, the features were extracted from the **kern files in the zip-archive as provided by the Center for Computer Assisted Research in the Humanities
+at Stanford University  (<a class="reference external" href="https://kern.humdrum.org/cgi-bin/browse?l=/essen">https://kern.humdrum.org/cgi-bin/browse?l=/essen</a>). Some adaptations were needed:</p>
+<ul class="simple">
+<li><p>han0586: removed because it does not contain a melody.</p></li>
+<li><p>han0953 and india01: removed because the duration of groupettos does not add up.</p></li>
+<li><p>deut1328: removed because of encoding problems in the **kern file.</p></li>
+<li><p>In 960 files of the han series, a byte 0xFF has been replaced with 0x20 (space). This 0xFF value disrupted the parsing process.</p></li>
+<li><p>All melodies with “Mixed meters” are considered as ‘free meter’ in MTCFeatures since the meter changes often are not exactly indicated in the **kern source.</p></li>
+</ul>
 </div>
 
 
@@ -177,7 +187,7 @@
         <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="MTCFeatures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="MTCFeatures 1.1a" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
