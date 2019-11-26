@@ -29,6 +29,24 @@ class MD5Error(Exception):
         return f"MD5 hash value for downloaded file is not correct: {self.name}."
 
 def downloadData(dest='user'):
+    """Downloads data files into either a user data folder or a system wide data folder.
+    
+    The data files will be downloaded from Zenodo: https://zenodo.org/record/3551003 and
+    the MD5 hash will be checked. To find out the directories:
+    
+    .. code-block:: python
+
+            from MTCFeatures import DataLocation
+            print(DataLocation().user_data_dir)
+            print(DataLocation().site_data_dir)
+    
+    Parameters
+    ----------
+    dest : string, default='user'
+        If dest='user', install the datafiles into a platform specific user data file.
+        If dest='system', install the datafiles into a platform specific user data file.
+    """
+    
     DataLocation().downloadData(dest)
 
 class DataLocation:
