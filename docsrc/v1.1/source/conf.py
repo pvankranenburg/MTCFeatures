@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('../../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'MTCFeatures 1.1a'
+project = 'MTCFeatures 1.1'
 copyright = '2019, Peter van Kranenburg'
 author = 'Peter van Kranenburg'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1a'
+release = '1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,7 +34,11 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
+    'sphinx.ext.autosummary',
 ]
+
+autodoc_default_flags = ['members']
+autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -68,4 +72,3 @@ html_context = {
         '_static/theme_overrides.css',  # override wide tables in RTD theme
         ],
      }
-

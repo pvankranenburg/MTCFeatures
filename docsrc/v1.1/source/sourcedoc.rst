@@ -1,5 +1,8 @@
 Source Documentation
 --------------------
 
-.. automodule:: MTCFeatures.MTCFeatureLoader
-	:members:
+.. autosummary::
+	:toctree: generated
+	
+	MTCFeatures.MTCFeatureLoader
+	MTCFeatures.downloadData

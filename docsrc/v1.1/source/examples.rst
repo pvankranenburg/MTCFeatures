@@ -98,7 +98,10 @@ Use scale degree, metric contour and beat position from all songs in MTC-ANN-2.0
 
 	fl = MTCFeatureLoader('MTC-ANN-2.0.1')
 	seq_iter = fl.applyFeatureExtractor('full_beat_str')
-	seq_iter = fl.selectFeatures(['scaledegree','metriccontour','full_beat_str'], seq_iter=seq_iter)
+	seq_iter = fl.selectFeatures(
+		['scaledegree','metriccontour','full_beat_str'],
+		seq_iter=seq_iter
+	)
 
 Get backgroundcorpus for MTC-ANN from MTC-FS-INST:
 
@@ -131,7 +134,10 @@ Use labeled 17th and 18th century fiddle music only:
 
 	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
 	sel_instr = fl.applyFilter('instrumental')
-	sel_17th18th_c = fl.applyFilter( ('betweenyears', 1600, 1800), seq_iter=sel_instr )
+	sel_17th18th_c = fl.applyFilter(
+		('betweenyears', 1600, 1800),
+		seq_iter=sel_instr
+	)
 	sel_labeled = fl.applyFilter('labeled', seq_iter=sel_17th18th_c)
 
 or:
@@ -165,7 +171,14 @@ Use only melodies with given identifiers:
 .. code-block:: python
 
 	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
-	id_list = ['NLB125814_01','NLB125815_01','NLB125817_01','NLB125818_01','NLB125822_01','NLB125823_01']
+	id_list = [
+		'NLB125814_01',
+		'NLB125815_01',
+		'NLB125817_01',
+		'NLB125818_01',
+		'NLB125822_01',
+		'NLB125823_01'
+	]
 	sel_list = fl.applyFilter( ('inNLBIDs', id_list) )
 
 Use only instrumental melodies from tune family 2805_0:
@@ -174,7 +187,10 @@ Use only instrumental melodies from tune family 2805_0:
 
 	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
 	tf_list = ['2805_0']
-	sel_list = fl.applyFilter( ('inTuneFamilies', tf_list), seq_iter=fl.applyFilter('instrumental'))
+	sel_list = fl.applyFilter(
+		('inTuneFamilies', tf_list),
+		seq_iter=fl.applyFilter('instrumental')
+	)
 
 Write the result to a gzipped .jsonl file:
 
@@ -182,12 +198,14 @@ Write the result to a gzipped .jsonl file:
 
 	fl.writeJSON('2805_0.jsonl.gz', seq_iter=sel_list)
 
-Only keep ESSEN melodies from The Netherlands"
+Only keep ESSEN melodies from The Netherlands (For the exact names of the origins, consult the directory tree of the \*\*kern distribution of the Essen Folksong Collection.):
 
 .. code-block:: python
 
 	fl = MTCFeatureLoader('ESSEN')
 	sel_dut = fl.applyFilter( ('origin', 'europa/nederlan') )
+
+
 
 Get vocal melodies that have a meter:
 
