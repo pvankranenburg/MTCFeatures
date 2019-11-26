@@ -22,7 +22,7 @@ class MTCFeatureLoader:
     ----------
     jsonpath : string
         Either the filename of a .jsonl file containing melody sequences, or one
-        of the predefined names ``MTC-ANN-2.0.1``, ``MTC-FS-INST-2.0``, or ``ESSEN``.
+        of the predefined names ``'MTC-ANN-2.0.1'``, ``'MTC-FS-INST-2.0'``, or ``'ESSEN'``.
         If the filename ends with .gz, the data file is assumed to be gzipped.
     
     Attributes
