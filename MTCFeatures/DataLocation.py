@@ -1,5 +1,6 @@
 import os, sys
 import requests
+import hashlib
 
 from appdirs import user_data_dir, site_data_dir
 
@@ -21,6 +22,12 @@ class DataDirCreateError(Exception):
     def __str__(self):
         return f"Failed to create or write in the directory for data.: {self.name}."
 
+class MD5Error(Exception):
+    def __init__(self, arg):
+        self.name = arg
+    def __str__(self):
+        return f"MD5 hash value for downloaded file is not correct: {self.name}."
+
 def downloadData(dest='user'):
     DataLocation().downloadData(dest)
 
@@ -39,6 +46,12 @@ class DataLocation:
             'MTC-ANN-2.0.1'    : f"https://zenodo.org/record/3551003/files/{self.filenames['MTC-ANN-2.0.1']}?download=1",
             'MTC-FS-INST-2.0'  : f"https://zenodo.org/record/3551003/files/{self.filenames['MTC-FS-INST-2.0']}?download=1",
             'ESSEN'            : f"https://zenodo.org/record/3551003/files/{self.filenames['ESSEN']}?download=1"
+        }
+        
+        self.md5hashes = {
+            'MTC-ANN-2.0.1'    : "1a15615a4f7222702276565a0253e329",
+            'MTC-FS-INST-2.0'  : "2c5ef01870e9e202df392fed5b34b061",
+            'ESSEN'            : "c9290572aefb97af60b206775d050876"
         }
         
         self.user_data_dir = user_data_dir('MTCFeatures', "PvK")
@@ -110,5 +123,16 @@ class DataLocation:
             print(e)
             raise
         for name in self.downloadlinks.keys():
-            self.download(self.downloadlinks[name], os.path.join(destdir, self.filenames[name]), verbose=True)
+            destfilename = os.path.join(destdir, self.filenames[name])
+            self.download(self.downloadlinks[name], destfilename, verbose=True)
+            md5_hash = self.computeMD5(destfilename)
+            if md5_hash != self.md5hashes[name]:
+                raise MD5Error(self.filenames[name])
 
+    def computeMD5(self, filename):
+        md5_hash = hashlib.md5()
+        with open(filename,"rb") as f:
+            # Read and update hash in chunks of 4K
+            for byte_block in iter(lambda: f.read(4096),b""):
+                md5_hash.update(byte_block)
+        return md5_hash.hexdigest()
