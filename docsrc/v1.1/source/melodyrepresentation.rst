@@ -60,6 +60,19 @@ Melodies from the ESSEN collection have the following (fall back) values for the
 
 For melodies from the MTC, the `origin` metadata field is empty.
 
+Various features are represented as rational numbers. This is to avoid precision problems
+that would arise with representation of certain durations as float. For example, the duration of a 
+eight triplet note is precisely represented by 1/12, but it has no exact decimal representation:
+0.833333333... The fractions module that is part of the standard library of Python can be used
+to handle these values:
+
+.. code-block:: python
+
+	>>> from fractions import Fraction
+	>>> triplet_eight = Fraction('1/12')
+	>>> print(float(triplet_eight))
+	0.0833333333333
+
 The following table presents a semi-formal description of the features that are included for each note:
 
 .. list-table:: Features
@@ -133,7 +146,7 @@ The following table presents a semi-formal description of the features that are 
 	* - `imaweight`
 	  - float
 	  - [0.0, ..., 1.0]
-	  - Metric weight as computed by Inner Metric Analysis. 
+	  - Metric weight as computed by Inner Metric Analysis (Nestke and Noll, 2001). 
 	* - `imacontour`
 	  - string
 	  - {'-', '=', '+'}
@@ -233,7 +246,7 @@ The following table presents a semi-formal description of the features that are 
 	* - `lyrics`
 	  - string
 	  - 
-	  - Lyric syllable that goes with the note. Leading `-` indicates continuation of a word. Trailing `-` indicates the word to be continued. Only at first note of melisma. Vocal melodies only. 
+	  - Lyric syllable that goes with the note. Leading ``-`` indicates continuation of a word. Trailing ``-`` indicates the word to be continued. Only at first note of melisma. Vocal melodies only. 
 	* - `noncontentword`
 	  - bool
 	  - {true, false} 
@@ -261,19 +274,19 @@ The following table presents a semi-formal description of the features that are 
 	* - `gpr2a_Frankland`
 	  - float
 	  - 
-	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 2a by Frankland (2004). 
+	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 2a by Frankland and Cohen (2004). 
 	* - `gpr2b_Frankland`
 	  - float
 	  - 
-	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 2b by Frankland (2004). 
+	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 2b by Frankland and Cohen (2004). 
 	* - `gpr3a_Frankland`
 	  - float
 	  - 
-	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 3a by Frankland (2004). 
+	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 3a by Frankland and Cohen (2004). 
 	* - `gpr3d_Frankland`
 	  - float
 	  - 
-	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 3d by Frankland (2004).
+	  - Boundary strength of the boundary following the note according to Quantification of GTTM's GPR 3d by Frankland and Cohen (2004).
 	* - `gpr_Frankland_sum`
 	  - float
 	  -
@@ -315,3 +328,11 @@ The following table presents a semi-formal description of the features that are 
 	  - 
 	  - Expectancy of the note according to Factor 2 (pitchreversal) of the two-factor reduction of Narmour's (1990) IR by Schellenberg (1997).
 
+References
+^^^^^^^^^^
+
+* Cambouropoulos, E. (2001). The Local Boundary Detection Model (LBDM) and its Application in the Study of Expressive Timing. In *Proceedings of the International Computer Music Conference,* Havana.
+* Frankland, B.W. & Cohen, A.J. (2004). Parsing of Melody: Quantification and Testing of the Local Grouping Rules of Lerdahl and Jackendoff’s A Generative Theory of Tonal Music. *Music Perception,* 21(4), 499-543.
+* Narmour, E. (1990). *The Analysis and Cognition of Basic Melodic Structures - The Implication-Realization Model.* Chicago and London: The University of Chicago Press.
+* Nestke, A. & Noll, T. (2001). Inner Metric Analysis. In Haluska, J. (ed.), *Music and Mathematics* (91–111). Bratislava: Tatra Mountains Publications.
+* Schellenberg, E.G. (1997). Simplifying the Implication-Realization Model of Melodic Expectancy. *Music Perception: An Interdisciplinary Journal* 14(3), 295-318.

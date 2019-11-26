@@ -1,8 +1,8 @@
 Changelog
 ------------
 
-Version 1.1
-^^^^^^^^^^^
+Version 1.1 (27 November 2019)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Added features: values for various Local Boundary Model parameters (Cambouropoulos, 2001)
 * Added features: Quantifications of GTTM preference rules by Frankland (2004)
@@ -19,6 +19,7 @@ Version 1.1
 * Data: Textual features now have value None if undefined (was "").
 * Data: Melodies for full set of Essen \*\*kern collection included. Not only the European ones.
 * Data files moved to a repository on Zenodo.
+* Functionality for downloading the data added.
 
 Version 1.0 (5 November 2019)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

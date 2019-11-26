@@ -1,6 +1,11 @@
 Installation
 ------------
 
+Requirements
+^^^^^^^^^^^^
+
+No third-party Python modules are needed. MTCFeatures is a Python 3 module. Python 2 is not supported.
+
 Installation from PyPI
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -35,7 +40,7 @@ After installing the module, the datafiles need to be installed separately. Exec
 	downloadData(dest='user')
 
 This will install the data files in a platform specific data directory in user space.
-If you want the data files in a system wide directory, use dest='system'. Make sure
+If you want the data files in a system wide directory, which would make the data available to all users, use dest='system'. Make sure
 you have write permissions in the system wide data directory.
 
 Data only
