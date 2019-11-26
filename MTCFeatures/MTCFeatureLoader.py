@@ -2,6 +2,7 @@ import gzip
 import json
 import sys
 import random
+from pathlib import PurePath
 
 from collections import defaultdict
 from itertools import filterfalse, groupby
@@ -288,7 +289,7 @@ class MTCFeatureLoader:
                 from_seq = from_seqs[seq['id']]
                 for feat in from_seq['features'].keys():
                     seq['features'][feat] = from_seq['features'][feat]
-            except KeyError as e:
+            except KeyError:
                 pass
             yield seq
 
