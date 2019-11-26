@@ -1,11 +1,12 @@
 import setuptools
+import MTCFeatures
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="MTCFeatures",
-    version="1.1a0",
+    version=MTCFeatures.__version__,
     license='MIT',
     author="Peter van Kranenburg",
     author_email="peter.van.kranenburg@meertens.knaw.nl",
