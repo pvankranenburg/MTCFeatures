@@ -2,7 +2,7 @@ import os, sys
 import requests
 import hashlib
 
-from appdirs import user_data_dir, site_data_dir
+from .appdirs import user_data_dir, site_data_dir
 
 #data file missing
 class DataFileMissingError(Exception):
