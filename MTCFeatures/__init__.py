@@ -6,5 +6,6 @@ The [Meertens Tune Collections](http://www.liederenbank.nl/mtc/) incorporate var
 """
 
 from .MTCFeatureLoader import MTCFeatureLoader
+from .DataLocation import downloadData
 
 name = "MTCFeatures"

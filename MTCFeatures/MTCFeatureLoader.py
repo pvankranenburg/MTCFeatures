@@ -2,18 +2,11 @@ import gzip
 import json
 import sys
 import random
-from pathlib import PurePath, Path
 
 from collections import defaultdict
 from itertools import filterfalse, groupby
 
-__modpath = Path(__file__).resolve().parent
-
-datapaths = {
-    'MTC-ANN-2.0.1'    : PurePath(__modpath, 'data', 'MTC-ANN-2.0.1_sequences-1.1.jsonl.gz'),
-    'MTC-FS-INST-2.0'  : PurePath(__modpath, 'data', 'MTC-FS-INST-2.0_sequences-1.1.jsonl.gz'),
-    'ESSEN'            : PurePath(__modpath, 'data', 'essen_sequences-1.1.jsonl.gz')
-}
+from .DataLocation import DataLocation
 
 class MTCFeatureLoader:
     """Class for loading and processing melody sequences.
@@ -49,10 +42,7 @@ class MTCFeatureLoader:
     """
     
     def __init__(self, jsonpath):
-        try:
-            self.jsonpath = datapaths[jsonpath]
-        except KeyError:
-            self.jsonpath = PurePath(jsonpath)
+        self.jsonpath = DataLocation(jsonpath).getFilePath()
         self.filterBank = {}  # defaultdict(lambda : False)
         self.featureExtractors = {}  # defaultdict(lambda: 0)
         self.NoneReplacers = defaultdict(lambda: lambda x:x) #default: function that returns the argument
@@ -260,7 +250,7 @@ class MTCFeatureLoader:
         sequence
             Melody Sequence
         """
-        if self.jsonpath.suffix == ".gz":
+        if self.jsonpath.endswith(".gz"):
             opener = gzip.open
         else:
             opener = open
