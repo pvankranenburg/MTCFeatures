@@ -239,7 +239,7 @@ The following table presents a semi-formal description of the features that are 
 	  - Fraction (string)
 	  - {'n/d', 'n'}
 	  - Onset time of the note in the phrase in units of the beat length. The note that starts on the first beat of the last measure has value "0". No notated time signature: ``None`` for all notes.
-	* - `melismastatus`
+	* - `melismastate`
 	  - string
 	  - {'end', 'start', 'in'} 
 	  - In what way the note is part of a melisma. `end`: last note of a melisma (also for syllabic lyrics). `in`: middle note. `start`: first note of a melisma. Vocal melodies only. 
