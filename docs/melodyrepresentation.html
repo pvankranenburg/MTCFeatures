@@ -439,7 +439,7 @@ to handle these values:</p>
 <td><p>[0.0, …, 1.0]</p></td>
 <td><p>Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0.</p></td>
 </tr>
-<tr class="row-even"><td><p><cite>phraseend</cite></p></td>
+<tr class="row-even"><td><p><cite>phrase_end</cite></p></td>
 <td><p>bool</p></td>
 <td><p>{true, false}</p></td>
 <td><p>Whether the note is the last in a phrase.</p></td>
@@ -454,7 +454,7 @@ to handle these values:</p>
 <td><p>{‘n/d’, ‘n’}</p></td>
 <td><p>Onset time of the note in the phrase in units of the beat length. The note that starts on the first beat of the last measure has value “0”. No notated time signature: <code class="docutils literal notranslate"><span class="pre">None</span></code> for all notes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><cite>melismastatus</cite></p></td>
+<tr class="row-odd"><td><p><cite>melismastate</cite></p></td>
 <td><p>string</p></td>
 <td><p>{‘end’, ‘start’, ‘in’}</p></td>
 <td><p>In what way the note is part of a melisma. <cite>end</cite>: last note of a melisma (also for syllabic lyrics). <cite>in</cite>: middle note. <cite>start</cite>: first note of a melisma. Vocal melodies only.</p></td>
