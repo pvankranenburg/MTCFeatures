@@ -227,7 +227,7 @@ The following table presents a semi-formal description of the features that are 
 	  - float
 	  - [0.0, ..., 1.0]
 	  - Onset time of the note in its phrase. Onset time of the first note in the phrase is 0.0. Onset time of the last note in the phrase is 1.0. 
-	* - `phraseend`
+	* - `phrase_end`
 	  - bool
 	  - {true, false}
 	  - Whether the note is the last in a phrase. 
