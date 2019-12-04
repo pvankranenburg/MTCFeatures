@@ -112,5 +112,6 @@ venv.bak/
 
 #Sphinx
 docsrc/*/build/
+docsrc/*/source/generated
 docs/.buildinfo
 
