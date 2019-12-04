@@ -3,7 +3,7 @@
 # Eclipse
 .project
 .pydevproject
-.setttings/
+.settings/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
