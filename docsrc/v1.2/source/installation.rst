@@ -6,10 +6,7 @@ Requirements
 
 MTCFeatures is a Python 3 module. Python 2 is not supported.
 
-The `requests <http://docs.python-requests.org/en/master/>`_ module should be installed::
-
-	$ pip install requests
-
+MTCFeatures uses the `requests <http://docs.python-requests.org/en/master/>`_ module.
 
 Installation from PyPI
 ^^^^^^^^^^^^^^^^^^^^^^

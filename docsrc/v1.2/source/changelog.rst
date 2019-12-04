@@ -1,6 +1,12 @@
 Changelog
 ------------
 
+Version 1.2a0 (Future)
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Dependency requests now automatically installed by pip
+* Added filter: hasFeatures
+
 Version 1.1 (27 November 2019)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

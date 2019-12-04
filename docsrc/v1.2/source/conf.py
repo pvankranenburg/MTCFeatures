@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('../../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'MTCFeatures 1.1'
+project = 'MTCFeatures 1.2a0'
 copyright = '2019, Peter van Kranenburg'
 author = 'Peter van Kranenburg'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1'
+release = '1.2a0'
 
 
 # -- General configuration ---------------------------------------------------
