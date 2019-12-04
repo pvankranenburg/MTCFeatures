@@ -104,6 +104,7 @@ class MTCFeatureLoader:
             "371_0",
         ]
         self.registerFilter("inInstTest", lambda x: x["tunefamily"] in inst_test_list)
+        self.registerFilter("hasFeatures", lambda feat_list: lambda x: not False in [feat in x['features'].keys() for feat in feat_list])
 
     def head(self, n=10, seq_iter=None):
         """Yields the first `n` melodies.
