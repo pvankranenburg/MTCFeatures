@@ -1,0 +1,53 @@
+Known Issues
+------------
+
+In the following songs in version 1.1. of the data sets, the feature onsettick has wrong values due to a bug in the calculation of the duration unit that is the greatest common divisor of all durations. This will be corrected in the next version.
+
+* NLB015294_01
+* NLB074571_01
+* NLB074903_01
+* NLB075643_01
+* NLB111792_01
+* NLB125626_01
+* NLB127054_01
+* NLB128254_01
+* NLB128257_01
+* NLB134091_01
+* NLB139529_01
+* NLB139861_01
+* NLB139889_01
+* NLB142440_01
+* NLB147006_01
+* NLB150878_01
+* NLB150879_01
+* NLB151550_01
+* NLB170239_01
+* NLB175666_01
+* NLB176063_01
+* NLB176655_01
+* NLB177204_01
+* NLB177869_01
+* NLB178188_01
+* NLB179355_01
+* NLB180421_01
+* NLB183255_01
+* NLB192116_01
+* NLB197884_01
+* NLB197887_01
+* NLB197972_01
+* czech10
+* deut0574
+* deut1799
+* deut2592
+* deut2836
+* deut3939
+* deut4016
+* deut4312
+* deut4321
+* deut437
+* deut4697
+* france03
+* han0388b
+* han0409
+* han0719
+* kindr142
