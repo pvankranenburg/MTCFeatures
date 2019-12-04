@@ -1,12 +1,16 @@
 import setuptools
-import MTCFeatures
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("MTCFeatures/version.txt",'r') as f:
+    version = f.readline().strip()
+    
+print(version)
+
 setuptools.setup(
     name="MTCFeatures",
-    version=MTCFeatures.__version__,
+    version=version,
     license='MIT',
     author="Peter van Kranenburg",
     author_email="peter.van.kranenburg@meertens.knaw.nl",
@@ -21,5 +25,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    package_data={ '': ['version.txt'] },
+    install_requires=['requests>=2.22.0']
 )
 

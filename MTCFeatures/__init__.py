@@ -5,7 +5,8 @@ The [Meertens Tune Collections](http://www.liederenbank.nl/mtc/) incorporate var
 .. moduleauthor:: Peter van Kranenburg <peter.van.kranenburg@meertens.knaw.nl>
 """
 
-__version__ = '1.2a0'
+with open("MTCFeatures/version.txt",'r') as f:
+    __version__ = f.readline().strip()
 
 from .MTCFeatureLoader import MTCFeatureLoader
 from .DataLocation import DataLocation
