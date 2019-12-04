@@ -38,6 +38,7 @@ The following filters are registered in class `MTCFeatureLoader`:
 
 - ``vocal`` : Only keep vocal melodies
 - ``instrumental`` : Only keep instrumental melodies
+- ``hasFeatures(feat_list)`` : Only keep melodies that have all features which names are in feat_list.
 - ``firstvoice`` : Only keep first voices/stanzas (i.e. identifier ending with _01)
 - ``ann_bgcorpus`` : Only keep melodies unrelated to MTC-ANN (only applicable to MTC-FS-INST)
 - ``labeled`` : Only keep melodies with a tune family label

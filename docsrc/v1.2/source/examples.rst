@@ -30,6 +30,13 @@ Keep only songs in tune families with more than 10 members:
 
 	seq_iter = fl.minClassSizeFilter('tunefamily', 10)
 
+Keep only songs that have features `pitch` and `phoneme`:
+
+.. code-block:: python
+
+	fl = MTCFeatureLoader('MTC-FS-INST-2.0')
+	seq_iter = fl.applyFilter( ('hasFeatures', ['pitch','phoneme']) )
+
 A filter can be inverted by setting argument invert to True:
 
 .. code-block:: python
