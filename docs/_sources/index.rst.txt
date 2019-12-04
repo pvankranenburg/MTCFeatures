@@ -12,6 +12,7 @@ MTCFeatures 1.1
    examples
    sourcedoc
    changelog
+   knownissues
 
 Indices and tables
 ==================

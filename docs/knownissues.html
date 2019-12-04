@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Source Documentation &mdash; MTCFeatures 1.1 1.1 documentation</title>
+  <title>Known Issues &mdash; MTCFeatures 1.1 1.1 documentation</title>
   
 
   
@@ -36,8 +36,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MTCFeatures.MTCFeatureLoader" href="generated/MTCFeatures.MTCFeatureLoader.html" />
-    <link rel="prev" title="Examples" href="examples.html" /> 
+    <link rel="prev" title="Changelog" href="changelog.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,13 +87,9 @@
 <li class="toctree-l1"><a class="reference internal" href="melodyrepresentation.html">Melody Representation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicusage.html">Basic Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Source Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/MTCFeatures.MTCFeatureLoader.html">MTCFeatures.MTCFeatureLoader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/MTCFeatures.downloadData.html">MTCFeatures.downloadData</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="sourcedoc.html">Source Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Known Issues</a></li>
 </ul>
 
             
@@ -140,13 +135,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Source Documentation</li>
+      <li>Known Issues</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/sourcedoc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/knownissues.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -159,22 +154,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="source-documentation">
-<h1>Source Documentation<a class="headerlink" href="#source-documentation" title="Permalink to this headline">¶</a></h1>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/MTCFeatures.MTCFeatureLoader.html#MTCFeatures.MTCFeatureLoader" title="MTCFeatures.MTCFeatureLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MTCFeatures.MTCFeatureLoader</span></code></a>(jsonpath)</p></td>
-<td><p>Class for loading and processing melody sequences.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/MTCFeatures.downloadData.html#MTCFeatures.downloadData" title="MTCFeatures.downloadData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MTCFeatures.downloadData</span></code></a>([dest])</p></td>
-<td><p>Downloads data files into either a user data folder or a system wide data folder.</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="known-issues">
+<h1>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h1>
+<p>In the following songs in version 1.1. of the data sets, the feature onsettick has wrong values due to a bug in the calculation of the duration unit that is the greatest common divisor of all durations. This will be corrected in the next version.</p>
+<ul class="simple">
+<li><p>NLB015294_01</p></li>
+<li><p>NLB074571_01</p></li>
+<li><p>NLB074903_01</p></li>
+<li><p>NLB075643_01</p></li>
+<li><p>NLB111792_01</p></li>
+<li><p>NLB125626_01</p></li>
+<li><p>NLB127054_01</p></li>
+<li><p>NLB128254_01</p></li>
+<li><p>NLB128257_01</p></li>
+<li><p>NLB134091_01</p></li>
+<li><p>NLB139529_01</p></li>
+<li><p>NLB139861_01</p></li>
+<li><p>NLB139889_01</p></li>
+<li><p>NLB142440_01</p></li>
+<li><p>NLB147006_01</p></li>
+<li><p>NLB150878_01</p></li>
+<li><p>NLB150879_01</p></li>
+<li><p>NLB151550_01</p></li>
+<li><p>NLB170239_01</p></li>
+<li><p>NLB175666_01</p></li>
+<li><p>NLB176063_01</p></li>
+<li><p>NLB176655_01</p></li>
+<li><p>NLB177204_01</p></li>
+<li><p>NLB177869_01</p></li>
+<li><p>NLB178188_01</p></li>
+<li><p>NLB179355_01</p></li>
+<li><p>NLB180421_01</p></li>
+<li><p>NLB183255_01</p></li>
+<li><p>NLB192116_01</p></li>
+<li><p>NLB197884_01</p></li>
+<li><p>NLB197887_01</p></li>
+<li><p>NLB197972_01</p></li>
+<li><p>czech10</p></li>
+<li><p>deut0574</p></li>
+<li><p>deut1799</p></li>
+<li><p>deut2592</p></li>
+<li><p>deut2836</p></li>
+<li><p>deut3939</p></li>
+<li><p>deut4016</p></li>
+<li><p>deut4312</p></li>
+<li><p>deut4321</p></li>
+<li><p>deut437</p></li>
+<li><p>deut4697</p></li>
+<li><p>france03</p></li>
+<li><p>han0388b</p></li>
+<li><p>han0409</p></li>
+<li><p>han0719</p></li>
+<li><p>kindr142</p></li>
+</ul>
 </div>
 
 
@@ -185,10 +217,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="generated/MTCFeatures.MTCFeatureLoader.html" class="btn btn-neutral float-right" title="MTCFeatures.MTCFeatureLoader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-left" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
